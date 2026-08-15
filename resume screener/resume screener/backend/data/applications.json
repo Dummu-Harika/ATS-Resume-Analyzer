@@ -1,0 +1,4388 @@
+[
+  {
+    "name": "kalyan",
+    "role": "FullStackDeveloper",
+    "score": 67,
+    "analysis": {
+      "role": "FullStackDeveloper",
+      "overallScore": 67,
+      "breakdown": {
+        "skills": 18,
+        "experience": 100,
+        "education": 100,
+        "projects": 100,
+        "format": 100
+      },
+      "matchedSkills": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "missingSkills": [
+        "React",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "SQL",
+        "REST APIs",
+        "Git",
+        "GitHub",
+        "Authentication",
+        "Authorization",
+        "Deployment",
+        "AWS",
+        "Vercel",
+        "Netlify"
+      ]
+    },
+    "status": "Submitted",
+    "id": "REF-1001",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "henry",
+    "role": "FullStackDeveloper",
+    "score": 40.01,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 19.41,
+        "experience": 23,
+        "education": 78,
+        "projects": 48,
+        "ats": 100
+      },
+      "final_score": 40.01,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 19.41,
+        "experience": 23,
+        "education": 78,
+        "projects": 48,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 6 matching skills. Missing: Git, Deployment, AWS...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "JavaScript",
+        "CSS",
+        "HTML"
+      ],
+      "missing_skills": [
+        "Git",
+        "Deployment",
+        "AWS",
+        "SQL",
+        "REST APIs",
+        "GitHub",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Authorization",
+        "Netlify",
+        "Authentication",
+        "Vercel",
+        "Express.js"
+      ],
+      "overallScore": 40.01
+    },
+    "status": "Submitted",
+    "id": "REF-1003",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "loed",
+    "role": "AIMLEngineer",
+    "score": 58.13,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 57.33,
+        "experience": 28,
+        "education": 80,
+        "projects": 62,
+        "ats": 100
+      },
+      "final_score": 58.13,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 57.33,
+        "experience": 28,
+        "education": 80,
+        "projects": 62,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 14 matching skills. Missing: PyTorch, Model Deployment, Computer Vision...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "Project section detected with relevant keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "role": "AIMLEngineer",
+      "matched_skills": [
+        "Mathematics",
+        "Machine Learning",
+        "Python",
+        "Natural Language Processing",
+        "NLP",
+        "Deep Learning"
+      ],
+      "missing_skills": [
+        "PyTorch",
+        "Model Deployment",
+        "Computer Vision",
+        "TensorFlow",
+        "Neural Networks",
+        "Data Preprocessing",
+        "Linear Algebra",
+        "Optimization Techniques",
+        "Calculus"
+      ],
+      "overallScore": 58.13
+    },
+    "status": "Submitted",
+    "id": "REF-1005",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "tom cruice",
+    "role": "Cybersecurity",
+    "score": 56.8,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 50,
+        "experience": 40,
+        "education": 80,
+        "projects": 48,
+        "ats": 100
+      },
+      "final_score": 56.8,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 50,
+        "experience": 40,
+        "education": 80,
+        "projects": 48,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 6 matching skills. Missing: Firewalls, Linux, IPS...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: Unknown. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "role": "Cybersecurity",
+      "matched_skills": [
+        "Ethical Hacking",
+        "Penetration Testing",
+        "Vulnerability Assessment",
+        "SIEM Tools"
+      ],
+      "missing_skills": [
+        "Firewalls",
+        "Linux",
+        "IPS",
+        "Cryptography",
+        "IDS",
+        "Network Security",
+        "Intrusion Detection Systems",
+        "Incident Response",
+        "Cyber Laws",
+        "Risk Management",
+        "Compliance"
+      ],
+      "overallScore": 56.8
+    },
+    "status": "Submitted",
+    "id": "REF-1008",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "john",
+    "role": "FullStackDeveloper",
+    "score": 33.23,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 2.94,
+        "experience": 18,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 33.23,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 2.94,
+        "experience": 18,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 5 matching skills. Missing: React, AWS, GitHub...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [],
+      "missing_skills": [
+        "React",
+        "AWS",
+        "GitHub",
+        "Authorization",
+        "CSS",
+        "Git",
+        "JavaScript",
+        "Express.js",
+        "Netlify",
+        "Node.js",
+        "Deployment",
+        "SQL",
+        "MongoDB",
+        "Authentication",
+        "REST APIs",
+        "HTML",
+        "Vercel"
+      ],
+      "overallScore": 33.23
+    },
+    "status": "Submitted",
+    "id": "REF-1009",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "tom cruice",
+    "role": "DataScienceEngineer",
+    "score": 38.88,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 20.83,
+        "experience": 18,
+        "education": 80,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 38.88,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 20.83,
+        "experience": 18,
+        "education": 80,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 7 matching skills. Missing: Data Cleaning, Feature Engineering, Model Evaluation...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "Python",
+        "Statistics"
+      ],
+      "missing_skills": [
+        "Data Cleaning",
+        "Feature Engineering",
+        "Model Evaluation",
+        "Machine Learning",
+        "Data Visualization",
+        "Pandas",
+        "SQL",
+        "Jupyter Notebook",
+        "NumPy",
+        "Probability"
+      ],
+      "overallScore": 38.88
+    },
+    "status": "Submitted",
+    "id": "REF-1012",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "doe harry",
+    "role": "Cybersecurity",
+    "score": 44.48,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 27.33,
+        "experience": 18,
+        "education": 100,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 44.48,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 27.33,
+        "experience": 18,
+        "education": 100,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 5 matching skills. Missing: IPS, Risk Management, Linux...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Education matches requirements.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "role": "Cybersecurity",
+      "matched_skills": [
+        "Penetration Testing",
+        "SIEM Tools",
+        "Vulnerability Assessment",
+        "Ethical Hacking"
+      ],
+      "missing_skills": [
+        "IPS",
+        "Risk Management",
+        "Linux",
+        "Network Security",
+        "Compliance",
+        "Cryptography",
+        "Intrusion Detection Systems",
+        "IDS",
+        "Firewalls",
+        "Cyber Laws",
+        "Incident Response"
+      ],
+      "overallScore": 44.48
+    },
+    "status": "Submitted",
+    "id": "REF-1013",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "mohan",
+    "role": "DataScienceEngineer",
+    "score": 47.88,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 43.33,
+        "experience": 18,
+        "education": 80,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 47.88,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 43.33,
+        "experience": 18,
+        "education": 80,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 7 matching skills. Missing: Jupyter Notebook, NumPy, Probability...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "Statistics",
+        "Python",
+        "Data Visualization",
+        "Machine Learning",
+        "SQL"
+      ],
+      "missing_skills": [
+        "Jupyter Notebook",
+        "NumPy",
+        "Probability",
+        "Feature Engineering",
+        "Model Evaluation",
+        "Data Cleaning",
+        "Pandas"
+      ],
+      "overallScore": 47.88
+    },
+    "status": "Submitted",
+    "id": "REF-1015",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "abdulla",
+    "role": "FullStackDeveloper",
+    "score": 39.58,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 18.82,
+        "experience": 18,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 39.58,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 18.82,
+        "experience": 18,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 5 matching skills. Missing: Authentication, React, SQL...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "CSS",
+        "HTML",
+        "JavaScript"
+      ],
+      "missing_skills": [
+        "Authentication",
+        "React",
+        "SQL",
+        "Authorization",
+        "MongoDB",
+        "Node.js",
+        "Git",
+        "AWS",
+        "Vercel",
+        "Deployment",
+        "REST APIs",
+        "Netlify",
+        "GitHub",
+        "Express.js"
+      ],
+      "overallScore": 39.58
+    },
+    "status": "Submitted",
+    "id": "REF-1016",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "chandu",
+    "role": "Cybersecurity",
+    "score": 44.48,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 27.33,
+        "experience": 18,
+        "education": 100,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 44.48,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 27.33,
+        "experience": 18,
+        "education": 100,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 5 matching skills. Missing: Linux, Firewalls, Compliance...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Education matches requirements.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "REJECT",
+      "recommendation_reasoning": "Rule-based assessment based on 5 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 44.48% for the Cybersecurity role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 4 key skills"
+            ],
+            "weaknesses": [
+              "Missing 11 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Linux",
+            "Firewalls",
+            "Compliance"
+          ],
+          "medium_priority_missing": [
+            "Intrusion Detection Systems",
+            "IDS",
+            "Network Security"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Linux certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "Cybersecurity",
+      "matched_skills": [
+        "Vulnerability Assessment",
+        "Penetration Testing",
+        "SIEM Tools",
+        "Ethical Hacking"
+      ],
+      "missing_skills": [
+        "Linux",
+        "Firewalls",
+        "Compliance",
+        "Intrusion Detection Systems",
+        "IDS",
+        "Network Security",
+        "IPS",
+        "Risk Management",
+        "Cryptography",
+        "Incident Response",
+        "Cyber Laws"
+      ],
+      "overallScore": 44.48
+    },
+    "status": "Submitted",
+    "id": "REF-1025",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "narendra",
+    "role": "FullStackDeveloper",
+    "score": 61.19,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 65.98,
+        "experience": 35,
+        "education": 80,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 61.19,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 65.98,
+        "experience": 35,
+        "education": 80,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 13 matching skills. Missing: Express.js, Git, CSS...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "REJECT",
+      "recommendation_reasoning": "Rule-based assessment based on 13 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 61.19% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 6 key skills"
+            ],
+            "weaknesses": [
+              "Missing 11 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Express.js",
+            "Git",
+            "CSS"
+          ],
+          "medium_priority_missing": [
+            "Vercel",
+            "MongoDB",
+            "Netlify"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Express.js certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "GitHub",
+        "Deployment",
+        "React",
+        "JavaScript",
+        "SQL",
+        "AWS"
+      ],
+      "missing_skills": [
+        "Express.js",
+        "Git",
+        "CSS",
+        "Vercel",
+        "MongoDB",
+        "Netlify",
+        "Node.js",
+        "Authentication",
+        "Authorization",
+        "REST APIs",
+        "HTML"
+      ],
+      "overallScore": 61.19
+    },
+    "status": "Submitted",
+    "id": "REF-1028",
+    "timestamp": "Just now",
+    "quiz_session_id": "ee7caf18-4f08-4db3-bca2-9d8bd377286f",
+    "quiz_started_at": "2026-08-15T01:02:33.255670+00:00"
+  },
+  {
+    "name": "karthikeya",
+    "role": "DataScienceEngineer",
+    "score": 69.21,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 81.65,
+        "experience": 30,
+        "education": 100,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 69.21,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 81.65,
+        "experience": 30,
+        "education": 100,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 17 matching skills. Missing: Jupyter Notebook, Model Evaluation, Probability...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Education matches requirements.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "REJECT",
+      "recommendation_reasoning": "Rule-based assessment based on 17 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 69.21% for the DataScienceEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 7 key skills"
+            ],
+            "weaknesses": [
+              "Missing 5 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Jupyter Notebook",
+            "Model Evaluation",
+            "Probability"
+          ],
+          "medium_priority_missing": [
+            "Data Cleaning",
+            "Statistics"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Jupyter Notebook certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "Machine Learning",
+        "Feature Engineering",
+        "NumPy",
+        "Data Visualization",
+        "SQL",
+        "Pandas",
+        "Python"
+      ],
+      "missing_skills": [
+        "Jupyter Notebook",
+        "Model Evaluation",
+        "Probability",
+        "Data Cleaning",
+        "Statistics"
+      ],
+      "overallScore": 69.21
+    },
+    "status": "Submitted",
+    "id": "REF-1019",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "ramya",
+    "role": "DataScienceEngineer",
+    "score": 64.26,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 64.26,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 15 matching skills. Missing: NumPy, Probability, Pandas...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 15 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 64.26% for the DataScienceEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 5 key skills"
+            ],
+            "weaknesses": [
+              "Missing 7 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "NumPy",
+            "Probability",
+            "Pandas"
+          ],
+          "medium_priority_missing": [
+            "Model Evaluation",
+            "Statistics",
+            "Jupyter Notebook"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain NumPy certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "Python",
+        "Data Visualization",
+        "Machine Learning",
+        "Feature Engineering",
+        "SQL"
+      ],
+      "missing_skills": [
+        "NumPy",
+        "Probability",
+        "Pandas",
+        "Model Evaluation",
+        "Statistics",
+        "Jupyter Notebook",
+        "Data Cleaning"
+      ],
+      "overallScore": 64.26
+    },
+    "status": "Shortlisted",
+    "id": "REF-1025",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "harika",
+    "role": "DataScienceEngineer",
+    "score": 64.26,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 64.26,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 15 matching skills. Missing: Jupyter Notebook, NumPy, Statistics...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 15 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 64.26% for the DataScienceEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 5 key skills"
+            ],
+            "weaknesses": [
+              "Missing 7 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Jupyter Notebook",
+            "NumPy",
+            "Statistics"
+          ],
+          "medium_priority_missing": [
+            "Data Cleaning",
+            "Pandas",
+            "Model Evaluation"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Jupyter Notebook certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "SQL",
+        "Data Visualization",
+        "Machine Learning",
+        "Feature Engineering",
+        "Python"
+      ],
+      "missing_skills": [
+        "Jupyter Notebook",
+        "NumPy",
+        "Statistics",
+        "Data Cleaning",
+        "Pandas",
+        "Model Evaluation",
+        "Probability"
+      ],
+      "overallScore": 64.26
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1028",
+    "timestamp": "Just now",
+    "quiz_session_id": "ee7caf18-4f08-4db3-bca2-9d8bd377286f",
+    "quiz_started_at": "2026-08-15T01:02:33.255670+00:00"
+  },
+  {
+    "name": "kevin",
+    "role": "Cybersecurity",
+    "score": 57.72,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 52.92,
+        "experience": 30,
+        "education": 100,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 57.72,
+      "decision": "Hold",
+      "breakdown": {
+        "skills": 52.92,
+        "experience": 30,
+        "education": 100,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 5 matching skills. Missing: Compliance, Incident Response, IDS...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Education matches requirements.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "HOLD",
+      "recommendation_reasoning": "Rule-based assessment based on 5 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 57.72% for the Cybersecurity role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 4 key skills"
+            ],
+            "weaknesses": [
+              "Missing 11 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Compliance",
+            "Incident Response",
+            "IDS"
+          ],
+          "medium_priority_missing": [
+            "Firewalls",
+            "Network Security",
+            "Linux"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Compliance certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "Cybersecurity",
+      "matched_skills": [
+        "SIEM Tools",
+        "Vulnerability Assessment",
+        "Penetration Testing",
+        "Ethical Hacking"
+      ],
+      "missing_skills": [
+        "Compliance",
+        "Incident Response",
+        "IDS",
+        "Firewalls",
+        "Network Security",
+        "Linux",
+        "Risk Management",
+        "Cryptography",
+        "IPS",
+        "Cyber Laws",
+        "Intrusion Detection Systems"
+      ],
+      "overallScore": 57.72
+    },
+    "status": "On Hold",
+    "resume_url": "https://dqtimixizpegafznagfi.supabase.co/storage/v1/object/public/resumes/Cybersecurity/ethical%20hackerResume.pdf",
+    "id": "REF-1029",
+    "timestamp": "Just now",
+    "quiz_session_id": "ca6f5331-0f5b-4084-93c7-084a3044a1f3",
+    "quiz_started_at": "2026-08-15T01:18:32.081197+00:00"
+  },
+  {
+    "name": "eleven",
+    "role": "DataScienceEngineer",
+    "score": 64.26,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 64.26,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 15 matching skills. Missing: NumPy, Data Cleaning, Jupyter Notebook...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 15 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 64.26% for the DataScienceEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 5 key skills"
+            ],
+            "weaknesses": [
+              "Missing 7 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "NumPy",
+            "Data Cleaning",
+            "Jupyter Notebook"
+          ],
+          "medium_priority_missing": [
+            "Pandas",
+            "Probability",
+            "Statistics"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain NumPy certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "Feature Engineering",
+        "Python",
+        "SQL",
+        "Data Visualization",
+        "Machine Learning"
+      ],
+      "missing_skills": [
+        "NumPy",
+        "Data Cleaning",
+        "Jupyter Notebook",
+        "Pandas",
+        "Probability",
+        "Statistics",
+        "Model Evaluation"
+      ],
+      "overallScore": 64.26
+    },
+    "status": "Shortlisted",
+    "resume_url": "https://dqtimixizpegafznagfi.supabase.co/storage/v1/object/public/resumes/DataScienceEngineer/Data_Scientist_Resume%20(2).pdf",
+    "id": "REF-1030",
+    "timestamp": "Just now",
+    "quiz_session_id": "7e58a46b-142b-4668-b63c-5caedbac174d",
+    "quiz_started_at": "2026-08-15T01:37:31.623756+00:00"
+  },
+  {
+    "name": "max",
+    "role": "FullStackDeveloper",
+    "score": 61.19,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 65.98,
+        "experience": 35,
+        "education": 80,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 61.19,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 65.98,
+        "experience": 35,
+        "education": 80,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 13 matching skills. Missing: Node.js, Git, Authentication...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 13 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 61.19% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 6 key skills"
+            ],
+            "weaknesses": [
+              "Missing 11 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Node.js",
+            "Git",
+            "Authentication"
+          ],
+          "medium_priority_missing": [
+            "HTML",
+            "Express.js",
+            "MongoDB"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Node.js certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "AWS",
+        "GitHub",
+        "JavaScript",
+        "SQL",
+        "React",
+        "Deployment"
+      ],
+      "missing_skills": [
+        "Node.js",
+        "Git",
+        "Authentication",
+        "HTML",
+        "Express.js",
+        "MongoDB",
+        "Authorization",
+        "Vercel",
+        "REST APIs",
+        "CSS",
+        "Netlify"
+      ],
+      "overallScore": 61.19
+    },
+    "status": "Shortlisted",
+    "resume_url": "https://dqtimixizpegafznagfi.supabase.co/storage/v1/object/public/resumes/FullStackDeveloper/FSDresume.pdf",
+    "id": "REF-1031",
+    "timestamp": "Just now",
+    "quiz_session_id": "a3bcd2d5-d60d-4606-bafd-c410fa1cea66",
+    "quiz_started_at": "2026-08-15T01:37:35.857211+00:00"
+  },
+  {
+    "name": "padmaja",
+    "role": "AIMLEngineer",
+    "score": 61.26,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 69.28,
+        "experience": 30,
+        "education": 80,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 61.26,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 69.28,
+        "experience": 30,
+        "education": 80,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 12 matching skills. Missing: Optimization Techniques, Neural Networks, PyTorch...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 12 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 61.26% for the AIMLEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 6 key skills"
+            ],
+            "weaknesses": [
+              "Missing 9 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Optimization Techniques",
+            "Neural Networks",
+            "PyTorch"
+          ],
+          "medium_priority_missing": [
+            "Model Deployment",
+            "TensorFlow",
+            "Computer Vision"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Optimization Techniques certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "AIMLEngineer",
+      "matched_skills": [
+        "Mathematics",
+        "Python",
+        "NLP",
+        "Natural Language Processing",
+        "Deep Learning",
+        "Machine Learning"
+      ],
+      "missing_skills": [
+        "Optimization Techniques",
+        "Neural Networks",
+        "PyTorch",
+        "Model Deployment",
+        "TensorFlow",
+        "Computer Vision",
+        "Data Preprocessing",
+        "Linear Algebra",
+        "Calculus"
+      ],
+      "overallScore": 61.26
+    },
+    "status": "Shortlisted",
+    "resume_url": "https://dqtimixizpegafznagfi.supabase.co/storage/v1/object/public/resumes/AIMLEngineer/ML%20scientiistresume.pdf",
+    "id": "REF-1033",
+    "timestamp": "Just now",
+    "quiz_session_id": "bd019696-733c-4915-9bb5-a36ff983974a",
+    "quiz_started_at": "2026-08-15T02:47:50.650372+00:00"
+  },
+  {
+    "name": "henry",
+    "role": "DataScienceEngineer",
+    "score": 64.26,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 64.26,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 15 matching skills. Missing: NumPy, Data Cleaning, Jupyter Notebook...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 15 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 64.26% for the DataScienceEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 5 key skills"
+            ],
+            "weaknesses": [
+              "Missing 7 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "NumPy",
+            "Data Cleaning",
+            "Jupyter Notebook"
+          ],
+          "medium_priority_missing": [
+            "Pandas",
+            "Probability",
+            "Statistics"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain NumPy certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "Feature Engineering",
+        "Python",
+        "SQL",
+        "Data Visualization",
+        "Machine Learning"
+      ],
+      "missing_skills": [
+        "NumPy",
+        "Data Cleaning",
+        "Jupyter Notebook",
+        "Pandas",
+        "Probability",
+        "Statistics",
+        "Model Evaluation"
+      ],
+      "overallScore": 64.26
+    },
+    "status": "Shortlisted",
+    "resume_url": "https://dqtimixizpegafznagfi.supabase.co/storage/v1/object/public/resumes/DataScienceEngineer/Data_Scientist_Resume%20(2).pdf",
+    "id": "REF-1034",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "kalyan",
+    "role": "DataScienceEngineer",
+    "score": 64.26,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 64.26,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 15 matching skills. Missing: NumPy, Data Cleaning, Jupyter Notebook...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 15 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 64.26% for the DataScienceEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 5 key skills"
+            ],
+            "weaknesses": [
+              "Missing 7 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "NumPy",
+            "Data Cleaning",
+            "Jupyter Notebook"
+          ],
+          "medium_priority_missing": [
+            "Pandas",
+            "Probability",
+            "Statistics"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain NumPy certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "Feature Engineering",
+        "Python",
+        "SQL",
+        "Data Visualization",
+        "Machine Learning"
+      ],
+      "missing_skills": [
+        "NumPy",
+        "Data Cleaning",
+        "Jupyter Notebook",
+        "Pandas",
+        "Probability",
+        "Statistics",
+        "Model Evaluation"
+      ],
+      "overallScore": 64.26
+    },
+    "status": "Shortlisted",
+    "resume_url": "https://dqtimixizpegafznagfi.supabase.co/storage/v1/object/public/resumes/DataScienceEngineer/Data_Scientist_Resume%20(2).pdf",
+    "id": "REF-1035",
+    "timestamp": "Just now",
+    "quiz_session_id": "3d4d0374-f679-40be-9e39-aa067aa170d8",
+    "quiz_started_at": "2026-08-15T03:05:27.240369+00:00"
+  },
+  {
+    "name": "prabhas",
+    "role": "AIMLEngineer",
+    "score": 61.26,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 69.28,
+        "experience": 30,
+        "education": 80,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 61.26,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 69.28,
+        "experience": 30,
+        "education": 80,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 12 matching skills. Missing: Data Preprocessing, TensorFlow, Calculus...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 12 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 61.26% for the AIMLEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 6 key skills"
+            ],
+            "weaknesses": [
+              "Missing 9 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Data Preprocessing",
+            "TensorFlow",
+            "Calculus"
+          ],
+          "medium_priority_missing": [
+            "Neural Networks",
+            "Computer Vision",
+            "Optimization Techniques"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Data Preprocessing certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "AIMLEngineer",
+      "matched_skills": [
+        "Natural Language Processing",
+        "Deep Learning",
+        "Python",
+        "Mathematics",
+        "NLP",
+        "Machine Learning"
+      ],
+      "missing_skills": [
+        "Data Preprocessing",
+        "TensorFlow",
+        "Calculus",
+        "Neural Networks",
+        "Computer Vision",
+        "Optimization Techniques",
+        "Linear Algebra",
+        "Model Deployment",
+        "PyTorch"
+      ],
+      "overallScore": 61.26
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1033",
+    "timestamp": "Just now",
+    "quiz_session_id": "bd019696-733c-4915-9bb5-a36ff983974a",
+    "quiz_started_at": "2026-08-15T02:47:50.650372+00:00"
+  },
+  {
+    "name": "rohit",
+    "role": "Cybersecurity",
+    "score": 57.72,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 52.92,
+        "experience": 30,
+        "education": 100,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 57.72,
+      "decision": "Hold",
+      "breakdown": {
+        "skills": 52.92,
+        "experience": 30,
+        "education": 100,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 5 matching skills. Missing: Compliance, Firewalls, Network Security...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Education matches requirements.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "HOLD",
+      "recommendation_reasoning": "Rule-based assessment based on 5 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 57.72% for the Cybersecurity role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 4 key skills"
+            ],
+            "weaknesses": [
+              "Missing 11 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Compliance",
+            "Firewalls",
+            "Network Security"
+          ],
+          "medium_priority_missing": [
+            "Cryptography",
+            "IDS",
+            "Incident Response"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Compliance certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "Cybersecurity",
+      "matched_skills": [
+        "Ethical Hacking",
+        "SIEM Tools",
+        "Vulnerability Assessment",
+        "Penetration Testing"
+      ],
+      "missing_skills": [
+        "Compliance",
+        "Firewalls",
+        "Network Security",
+        "Cryptography",
+        "IDS",
+        "Incident Response",
+        "Linux",
+        "IPS",
+        "Cyber Laws",
+        "Risk Management",
+        "Intrusion Detection Systems"
+      ],
+      "overallScore": 57.72
+    },
+    "status": "On Hold",
+    "resume_url": "",
+    "id": "REF-1028",
+    "timestamp": "Just now",
+    "quiz_session_id": "ee7caf18-4f08-4db3-bca2-9d8bd377286f",
+    "quiz_started_at": "2026-08-15T01:02:33.255670+00:00"
+  },
+  {
+    "name": "david",
+    "role": "DataScienceEngineer",
+    "score": 64.26,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 64.26,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 73.03,
+        "experience": 30,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 15 matching skills. Missing: NumPy, Pandas, Probability...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 15 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 64.26% for the DataScienceEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 5 key skills"
+            ],
+            "weaknesses": [
+              "Missing 7 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "NumPy",
+            "Pandas",
+            "Probability"
+          ],
+          "medium_priority_missing": [
+            "Statistics",
+            "Data Cleaning",
+            "Model Evaluation"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain NumPy certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "Data Visualization",
+        "Python",
+        "Machine Learning",
+        "Feature Engineering",
+        "SQL"
+      ],
+      "missing_skills": [
+        "NumPy",
+        "Pandas",
+        "Probability",
+        "Statistics",
+        "Data Cleaning",
+        "Model Evaluation",
+        "Jupyter Notebook"
+      ],
+      "overallScore": 64.26
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1029",
+    "timestamp": "Just now",
+    "quiz_session_id": "ca6f5331-0f5b-4084-93c7-084a3044a1f3",
+    "quiz_started_at": "2026-08-15T01:18:32.081197+00:00"
+  },
+  {
+    "name": "prabhas",
+    "role": "JavaFullStackDeveloper",
+    "score": 49.89,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 44.72,
+        "experience": 40,
+        "education": 80,
+        "projects": 0,
+        "ats": 100
+      },
+      "final_score": 49.89,
+      "decision": "Hold",
+      "breakdown": {
+        "skills": 44.72,
+        "experience": 40,
+        "education": 80,
+        "projects": 0,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 7 matching skills. Missing: Hibernate, Spring Boot, Git...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "HOLD",
+      "recommendation_reasoning": "Rule-based assessment based on 7 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 49.89% for the JavaFullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 1 key skills"
+            ],
+            "weaknesses": [
+              "Missing 14 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Hibernate",
+            "Spring Boot",
+            "Git"
+          ],
+          "medium_priority_missing": [
+            "JUnit",
+            "Spring",
+            "Microservices"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Hibernate certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "JavaFullStackDeveloper",
+      "matched_skills": [
+        "SQL"
+      ],
+      "missing_skills": [
+        "Hibernate",
+        "Spring Boot",
+        "Git",
+        "JUnit",
+        "Spring",
+        "Microservices",
+        "RESTful Web Services",
+        "Algorithms",
+        "OOP",
+        "Unit Testing",
+        "Data Structures",
+        "Core Java",
+        "JDBC",
+        "Object Oriented Programming"
+      ],
+      "overallScore": 49.89
+    },
+    "status": "On Hold",
+    "resume_url": "",
+    "id": "REF-1030",
+    "timestamp": "Just now",
+    "quiz_session_id": "7e58a46b-142b-4668-b63c-5caedbac174d",
+    "quiz_started_at": "2026-08-15T01:37:31.623756+00:00"
+  },
+  {
+    "name": "bahubali",
+    "role": "JavaFullStackDeveloper",
+    "score": 49.89,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 44.72,
+        "experience": 40,
+        "education": 80,
+        "projects": 0,
+        "ats": 100
+      },
+      "final_score": 49.89,
+      "decision": "Hold",
+      "breakdown": {
+        "skills": 44.72,
+        "experience": 40,
+        "education": 80,
+        "projects": 0,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 7 matching skills. Missing: Hibernate, Spring Boot, Git...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "HOLD",
+      "recommendation_reasoning": "Rule-based assessment based on 7 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 49.89% for the JavaFullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 1 key skills"
+            ],
+            "weaknesses": [
+              "Missing 14 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Hibernate",
+            "Spring Boot",
+            "Git"
+          ],
+          "medium_priority_missing": [
+            "JUnit",
+            "Spring",
+            "Microservices"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Hibernate certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "JavaFullStackDeveloper",
+      "matched_skills": [
+        "SQL"
+      ],
+      "missing_skills": [
+        "Hibernate",
+        "Spring Boot",
+        "Git",
+        "JUnit",
+        "Spring",
+        "Microservices",
+        "RESTful Web Services",
+        "Algorithms",
+        "OOP",
+        "Unit Testing",
+        "Data Structures",
+        "Core Java",
+        "JDBC",
+        "Object Oriented Programming"
+      ],
+      "overallScore": 49.89
+    },
+    "status": "On Hold",
+    "resume_url": "",
+    "id": "REF-1031",
+    "timestamp": "Just now",
+    "quiz_session_id": "a3bcd2d5-d60d-4606-bafd-c410fa1cea66",
+    "quiz_started_at": "2026-08-15T01:37:35.857211+00:00"
+  },
+  {
+    "name": "oeeeeeeeee234",
+    "role": "FullStackDeveloper",
+    "score": 61.19,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 65.98,
+        "experience": 35,
+        "education": 80,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 61.19,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 65.98,
+        "experience": 35,
+        "education": 80,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 13 matching skills. Missing: Authorization, REST APIs, Authentication...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 13 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 61.19% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 6 key skills"
+            ],
+            "weaknesses": [
+              "Missing 11 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Authorization",
+            "REST APIs",
+            "Authentication"
+          ],
+          "medium_priority_missing": [
+            "CSS",
+            "Express.js",
+            "Vercel"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Authorization certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "JavaScript",
+        "React",
+        "SQL",
+        "AWS",
+        "Deployment",
+        "GitHub"
+      ],
+      "missing_skills": [
+        "Authorization",
+        "REST APIs",
+        "Authentication",
+        "CSS",
+        "Express.js",
+        "Vercel",
+        "Node.js",
+        "HTML",
+        "Git",
+        "MongoDB",
+        "Netlify"
+      ],
+      "overallScore": 61.19
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1033",
+    "timestamp": "Just now",
+    "quiz_session_id": "bd019696-733c-4915-9bb5-a36ff983974a",
+    "quiz_started_at": "2026-08-15T02:47:50.650372+00:00"
+  },
+  {
+    "name": "Harika",
+    "role": "FullStackDeveloper",
+    "score": 68.77,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 81.17,
+        "experience": 35,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 68.77,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 81.17,
+        "experience": 35,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 16 matching skills. Missing: SQL, Deployment, Authentication...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 16 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 68.77% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 10 key skills"
+            ],
+            "weaknesses": [
+              "Missing 7 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "SQL",
+            "Deployment",
+            "Authentication"
+          ],
+          "medium_priority_missing": [
+            "Vercel",
+            "Netlify",
+            "AWS"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain SQL certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "HTML",
+        "MongoDB",
+        "REST APIs",
+        "GitHub",
+        "Express.js",
+        "Node.js",
+        "JavaScript",
+        "CSS",
+        "Git",
+        "React"
+      ],
+      "missing_skills": [
+        "SQL",
+        "Deployment",
+        "Authentication",
+        "Vercel",
+        "Netlify",
+        "AWS",
+        "Authorization"
+      ],
+      "overallScore": 68.77
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1034",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "Harika",
+    "role": "DataScienceEngineer",
+    "score": 61.6,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 63.25,
+        "experience": 35,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 61.6,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 63.25,
+        "experience": 35,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 16 matching skills. Missing: Statistics, Data Cleaning, Data Visualization...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 16 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 61.6% for the DataScienceEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 3 key skills"
+            ],
+            "weaknesses": [
+              "Missing 9 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Statistics",
+            "Data Cleaning",
+            "Data Visualization"
+          ],
+          "medium_priority_missing": [
+            "SQL",
+            "NumPy",
+            "Probability"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Statistics certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "Machine Learning",
+        "Python",
+        "Feature Engineering"
+      ],
+      "missing_skills": [
+        "Statistics",
+        "Data Cleaning",
+        "Data Visualization",
+        "SQL",
+        "NumPy",
+        "Probability",
+        "Model Evaluation",
+        "Jupyter Notebook",
+        "Pandas"
+      ],
+      "overallScore": 61.6
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1035",
+    "timestamp": "Just now",
+    "quiz_session_id": "3d4d0374-f679-40be-9e39-aa067aa170d8",
+    "quiz_started_at": "2026-08-15T03:05:27.240369+00:00"
+  },
+  {
+    "name": "PhaseC Candidate",
+    "role": "DataScienceEngineer",
+    "score": 85,
+    "analysis": {
+      "overallScore": 85,
+      "matched_skills": [
+        "Python",
+        "Pandas",
+        "SQL"
+      ],
+      "missing_skills": [
+        "PyTorch",
+        "Deep Learning"
+      ],
+      "projects": [
+        {
+          "title": "Customer Churn Prediction",
+          "tools": [
+            "Python",
+            "Pandas",
+            "Scikit-learn"
+          ]
+        }
+      ]
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "text_preview": "Python, Pandas, SQL, customer churn prediction model",
+    "id": "REF-1028",
+    "timestamp": "Just now",
+    "quiz_session_id": "ee7caf18-4f08-4db3-bca2-9d8bd377286f",
+    "quiz_started_at": "2026-08-15T01:02:33.255670+00:00"
+  },
+  {
+    "name": "Demo Candidate",
+    "email": "demo@example.com",
+    "role": "Data Science Engineer",
+    "score": 82,
+    "status": "Shortlisted",
+    "analysis": {
+      "matched_skills": [
+        "Python",
+        "SQL",
+        "Pandas"
+      ],
+      "missing_skills": [
+        "Deep Learning"
+      ],
+      "projects": [
+        "Customer Churn Prediction"
+      ],
+      "final_report": "Candidate demonstrates strong SQL and Python skills."
+    },
+    "id": "REF-1029",
+    "timestamp": "Just now",
+    "quiz_session_id": "ca6f5331-0f5b-4084-93c7-084a3044a1f3",
+    "quiz_started_at": "2026-08-15T01:18:32.081197+00:00"
+  },
+  {
+    "name": "Alice Candidate",
+    "email": "alice@example.com",
+    "role": "Data Science Engineer",
+    "score": 82,
+    "status": "Shortlisted",
+    "analysis": {
+      "matched_skills": [
+        "Python",
+        "SQL",
+        "Pandas",
+        "Scikit-learn"
+      ],
+      "missing_skills": [
+        "Deep Learning",
+        "MLOps"
+      ],
+      "projects": [
+        "Customer Churn Prediction",
+        "Sales Dashboard"
+      ],
+      "final_report": "Strong Python and SQL analyst with project-based evidence.",
+      "experience": {
+        "total_years": 3
+      },
+      "education": {
+        "degree": "B.Tech"
+      }
+    },
+    "id": "REF-1030",
+    "timestamp": "Just now",
+    "quiz_session_id": "7e58a46b-142b-4668-b63c-5caedbac174d",
+    "quiz_started_at": "2026-08-15T01:37:31.623756+00:00"
+  },
+  {
+    "name": "Bob Candidate",
+    "email": "bob@example.com",
+    "role": "Java Full Stack Developer",
+    "score": 78,
+    "status": "Shortlisted",
+    "analysis": {
+      "matched_skills": [
+        "Java",
+        "Spring Boot",
+        "SQL",
+        "REST APIs"
+      ],
+      "missing_skills": [
+        "Kafka",
+        "Microservices"
+      ],
+      "projects": [
+        "Inventory Management System",
+        "Order API"
+      ],
+      "final_report": "Solid backend Java experience with API work.",
+      "experience": {
+        "total_years": 4
+      },
+      "education": {
+        "degree": "B.E."
+      }
+    },
+    "id": "REF-1031",
+    "timestamp": "Just now",
+    "quiz_session_id": "a3bcd2d5-d60d-4606-bafd-c410fa1cea66",
+    "quiz_started_at": "2026-08-15T01:37:35.857211+00:00"
+  },
+  {
+    "name": "Phase E Candidate",
+    "email": "phasee@example.com",
+    "role": "Data Science Engineer",
+    "score": 88,
+    "status": "Shortlisted",
+    "analysis": {
+      "matched_skills": [
+        "Python",
+        "SQL",
+        "Pandas",
+        "Scikit-learn"
+      ],
+      "missing_skills": [
+        "Deep Learning",
+        "MLOps"
+      ],
+      "projects": [
+        "Customer Churn Prediction",
+        "Sales Dashboard"
+      ],
+      "experience": {
+        "total_years": 3
+      },
+      "education": {
+        "degree": "B.Tech"
+      },
+      "final_report": "Strong Python and SQL candidate with project experience."
+    },
+    "id": "REF-1032",
+    "timestamp": "Just now",
+    "quiz_session_id": "3a818eef-76be-4f1f-a099-a29fd3c39973",
+    "quiz_started_at": "2026-08-15T01:47:50.121805+00:00"
+  },
+  {
+    "name": "Round3 Candidate",
+    "email": "round3@example.com",
+    "role": "Data Science Engineer",
+    "score": 88,
+    "status": "Shortlisted",
+    "analysis": {
+      "matched_skills": [
+        "Python",
+        "SQL",
+        "Pandas",
+        "Scikit-learn"
+      ],
+      "missing_skills": [
+        "Deep Learning",
+        "MLOps"
+      ],
+      "projects": [
+        "Customer Churn Prediction",
+        "Sales Dashboard"
+      ],
+      "experience": {
+        "total_years": 3
+      },
+      "education": {
+        "degree": "B.Tech"
+      },
+      "final_report": "Strong Python and SQL project experience."
+    },
+    "id": "REF-1033",
+    "timestamp": "Just now",
+    "quiz_session_id": "bd019696-733c-4915-9bb5-a36ff983974a",
+    "quiz_started_at": "2026-08-15T02:47:50.650372+00:00"
+  },
+  {
+    "name": "Round3 Candidate",
+    "email": "round3@example.com",
+    "role": "Data Science Engineer",
+    "score": 85,
+    "analysis": {
+      "matched_skills": [
+        "Python",
+        "SQL",
+        "Pandas",
+        "scikit-learn"
+      ],
+      "missing_skills": [
+        "Deep Learning"
+      ],
+      "projects": [
+        "Customer Churn Prediction"
+      ],
+      "ai_analysis": {
+        "projects": [
+          "Customer Churn Prediction"
+        ],
+        "experience": {},
+        "education": {}
+      },
+      "final_report": "Strong fit for a Data Science Engineer role with Python and SQL skills.",
+      "breakdown": {
+        "skills": 85,
+        "experience": 80,
+        "education": 70,
+        "projects": 88,
+        "format": 90
+      }
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "resume_text": "Python, SQL, Pandas, scikit-learn, Customer Churn Prediction",
+    "text_preview": "Python, SQL, Pandas, scikit-learn, Customer Churn Prediction",
+    "id": "REF-1034",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "Round2 Smoke Candidate",
+    "email": "round2@example.com",
+    "role": "DataScienceEngineer",
+    "score": 85,
+    "status": "Shortlisted",
+    "analysis": {
+      "matched_skills": [
+        "Python",
+        "SQL",
+        "Pandas",
+        "scikit-learn"
+      ],
+      "missing_skills": [
+        "Deep Learning"
+      ],
+      "projects": [
+        "Customer Churn Prediction"
+      ],
+      "final_report": "Strong fit for a Data Science Engineer role.",
+      "ai_analysis": {
+        "projects": [
+          "Customer Churn Prediction"
+        ],
+        "experience": {
+          "years": 3
+        },
+        "education": {
+          "degree": "B.Tech"
+        }
+      }
+    },
+    "resume_text": "Python, SQL, Pandas, scikit-learn, Customer Churn Prediction",
+    "text_preview": "Python, SQL, Pandas, scikit-learn, Customer Churn Prediction",
+    "id": "REF-1035",
+    "timestamp": "Just now",
+    "quiz_session_id": "3d4d0374-f679-40be-9e39-aa067aa170d8",
+    "quiz_started_at": "2026-08-15T03:05:27.240369+00:00"
+  },
+  {
+    "name": "Round3 Qualified Candidate",
+    "email": "qualified@example.com",
+    "role": "DataScienceEngineer",
+    "score": 85,
+    "status": "Interview Ready",
+    "analysis": {
+      "matched_skills": [
+        "Python",
+        "SQL",
+        "Pandas",
+        "scikit-learn"
+      ],
+      "missing_skills": [
+        "Deep Learning"
+      ],
+      "projects": [
+        "Customer Churn Prediction"
+      ],
+      "final_report": "Strong fit for Data Science role."
+    },
+    "resume_text": "Python, SQL, Pandas, scikit-learn, Customer Churn Prediction",
+    "text_preview": "Python, SQL, Pandas, scikit-learn, Customer Churn Prediction",
+    "id": "REF-1036",
+    "timestamp": "Just now",
+    "quiz_score": 85,
+    "interview_session_id": 3,
+    "interview_started_at": "2026-08-15T03:05:43.567048+00:00"
+  },
+  {
+    "name": "John Doe",
+    "resume_url": "",
+    "score": 54.9,
+    "email": "john.doe@example.com",
+    "role": "DataScienceEngineer",
+    "analysis": {
+      "parameter_scores": {
+        "skills": 57.74,
+        "experience": 35.0,
+        "education": 60.0,
+        "projects": 40.5,
+        "ats": 100.0
+      },
+      "final_score": 54.9,
+      "decision": "Hold",
+      "breakdown": {
+        "skills": 57.74,
+        "experience": 35.0,
+        "education": 60.0,
+        "projects": 40.5,
+        "format": 100.0
+      },
+      "feedback": {
+        "skills": "Found 4 matching skills. Missing: Jupyter Notebook, Statistics, Machine Learning...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: Unknown. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: DOCX. Sections detected: True."
+      },
+      "recommendation": "HOLD",
+      "recommendation_reasoning": "Rule-based assessment based on 4 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 54.9% for the DataScienceEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 4 key skills"
+            ],
+            "weaknesses": [
+              "Missing 8 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: Unknown"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Jupyter Notebook",
+            "Statistics",
+            "Machine Learning"
+          ],
+          "medium_priority_missing": [
+            "Model Evaluation",
+            "Data Visualization",
+            "Feature Engineering"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Jupyter Notebook certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "Python",
+        "SQL",
+        "NumPy",
+        "Pandas"
+      ],
+      "missing_skills": [
+        "Jupyter Notebook",
+        "Statistics",
+        "Machine Learning",
+        "Model Evaluation",
+        "Data Visualization",
+        "Feature Engineering",
+        "Probability",
+        "Data Cleaning"
+      ],
+      "overallScore": 54.9
+    },
+    "status": "Interview Ready",
+    "id": "REF-1037",
+    "timestamp": "Just now",
+    "quiz_session_id": "17cd2234-3c3f-4c0d-94fe-78c6fff658e1",
+    "quiz_started_at": "2026-08-15T03:53:15.971017+00:00",
+    "quiz_report_full": {
+      "totalScore": 20,
+      "maxScore": 85,
+      "percentage": 23.53,
+      "results": [
+        {
+          "questionId": 1,
+          "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 5,
+          "maxPoints": 5,
+          "userAnswer": "Missing values and schema drift",
+          "correctAnswer": "Missing values and schema drift",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 6,
+          "question": "Which Python pattern is most appropriate for checking missing values before training on a dataset used in business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 15,
+          "maxPoints": 15,
+          "userAnswer": "df.isna().sum() and feature imputation",
+          "correctAnswer": "df.isna().sum() and feature imputation",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 8,
+          "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy when assessing a DataScienceEngineer model used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "Feature engineering and cross-validation",
+          "correctAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 7,
+          "question": "If a candidate claims experience with Python but the project description only mentions basic reporting, what is the strongest way to challenge that claim in an interview?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "Pandas for preprocessing",
+          "correctAnswer": "Ask them to explain feature engineering, modeling tradeoffs, validation logic, and business impact",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 3,
+          "question": "When a resume highlights Python and SQL, which practice best validates that those skills were used on a real project?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "Use test split and monitoring",
+          "correctAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 2,
+          "question": "In a DataScienceEngineer project, the feature engineering step is typically used to transform raw inputs into ____ for model learning.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 5,
+          "userAnswer": "feature vectors",
+          "correctAnswer": "usable features",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 4,
+          "question": "A model built for business analytics system shows strong training accuracy but poor deployment performance. What is the most likely next investigation?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "correctAnswer": "Check for data leakage, feature drift, and different production distributions",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 5,
+          "question": "Write a SQL query to count the number of records in a table where Python is not null and the value is greater than 0.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "Ask for code examples and clarifications about the project",
+          "correctAnswer": "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name > 0;",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        }
+      ],
+      "overallFeedback": "Technical assessment completed. The backend evaluated your responses and compared them against the role-specific answer key.",
+      "isSelected": false,
+      "isFinished": true
+    },
+    "quiz_score": 85,
+    "interview_session_id": 4,
+    "interview_started_at": "2026-08-15T03:55:32.598206+00:00"
+  },
+  {
+    "email": "test@example.com",
+    "analysis": {},
+    "name": "Test Candidate",
+    "resume_text": "Python\\nReact",
+    "role": "FullStackDeveloper",
+    "id": "REF-1038",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "E2E Candidate",
+    "email": "e2e@example.com",
+    "role": "FullStackDeveloper",
+    "resume_text": {
+      "executive_summary": "Rule-based assessment completed. The candidate scored 38.84% for the FullStackDeveloper role.",
+      "category_analysis": {
+        "skills": {
+          "status": "Gap",
+          "strengths": [
+            "Matched 2 key skills"
+          ],
+          "weaknesses": [
+            "Missing 15 required skills"
+          ],
+          "recommendations": [
+            "Focus on learning missing technical skills.",
+            "Update skills section with proficiency levels."
+          ]
+        },
+        "experience": {
+          "status": "Gap",
+          "strengths": [
+            "0 years of total experience"
+          ],
+          "weaknesses": [
+            "Relevant industry experience could be highlighted more."
+          ],
+          "recommendations": [
+            "Quantify achievements with metrics.",
+            "Clarify roles and responsibilities."
+          ]
+        },
+        "education": {
+          "status": "Gap",
+          "strengths": [
+            "Degree: Unknown"
+          ],
+          "weaknesses": [
+            "Consider adding relevant certifications."
+          ],
+          "recommendations": [
+            "Highlight specialized coursework."
+          ]
+        }
+      },
+      "skills_gap_analysis": {
+        "high_priority_missing": [
+          "Netlify",
+          "AWS",
+          "GitHub"
+        ],
+        "medium_priority_missing": [
+          "CSS",
+          "Express.js",
+          "Deployment"
+        ],
+        "learning_roadmap": [
+          "Complete online courses for missing tech.",
+          "Build 2 small projects using new stack."
+        ]
+      },
+      "experience_enhancement": [
+        "Use STAR method for bullets.",
+        "Include impact numbers ($ or %)."
+      ],
+      "project_showcase_tips": [
+        "Add GitHub links.",
+        "Describe the tools used clearly."
+      ],
+      "ats_optimization_checklist": [
+        "Use standard headings.",
+        "Remove complex formatting.",
+        "Target keyword density."
+      ],
+      "action_plan": [
+        "Obtain Netlify certification.",
+        "Rewrite experience bullets to include results.",
+        "Update projects with links to source code.",
+        "Ensure skills keywords are easily scannable."
+      ]
+    },
+    "analysis": {
+      "parameter_scores": {
+        "skills": 35.97,
+        "experience": 35.0,
+        "education": 48.0,
+        "projects": 0,
+        "ats": 85.0
+      },
+      "final_score": 38.84,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 35.97,
+        "experience": 35.0,
+        "education": 48.0,
+        "projects": 0,
+        "format": 85.0
+      },
+      "feedback": {
+        "skills": "Found 3 matching skills. Missing: Netlify, AWS, GitHub...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: Unknown. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: DOCX. Sections detected: False."
+      },
+      "recommendation": "REJECT",
+      "recommendation_reasoning": "Rule-based assessment based on 3 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 38.84% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 2 key skills"
+            ],
+            "weaknesses": [
+              "Missing 15 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: Unknown"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Netlify",
+            "AWS",
+            "GitHub"
+          ],
+          "medium_priority_missing": [
+            "CSS",
+            "Express.js",
+            "Deployment"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Netlify certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "React",
+        "SQL"
+      ],
+      "missing_skills": [
+        "Netlify",
+        "AWS",
+        "GitHub",
+        "CSS",
+        "Express.js",
+        "Deployment",
+        "Node.js",
+        "Vercel",
+        "MongoDB",
+        "Authorization",
+        "JavaScript",
+        "Git",
+        "Authentication",
+        "HTML",
+        "REST APIs"
+      ],
+      "overallScore": 38.84
+    },
+    "id": "REF-1039",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "E2E Candidate",
+    "email": "e2e@example.com",
+    "role": "FullStackDeveloper",
+    "resume_text": {
+      "executive_summary": "Rule-based assessment completed. The candidate scored 38.84% for the FullStackDeveloper role.",
+      "category_analysis": {
+        "skills": {
+          "status": "Gap",
+          "strengths": [
+            "Matched 2 key skills"
+          ],
+          "weaknesses": [
+            "Missing 15 required skills"
+          ],
+          "recommendations": [
+            "Focus on learning missing technical skills.",
+            "Update skills section with proficiency levels."
+          ]
+        },
+        "experience": {
+          "status": "Gap",
+          "strengths": [
+            "0 years of total experience"
+          ],
+          "weaknesses": [
+            "Relevant industry experience could be highlighted more."
+          ],
+          "recommendations": [
+            "Quantify achievements with metrics.",
+            "Clarify roles and responsibilities."
+          ]
+        },
+        "education": {
+          "status": "Gap",
+          "strengths": [
+            "Degree: Unknown"
+          ],
+          "weaknesses": [
+            "Consider adding relevant certifications."
+          ],
+          "recommendations": [
+            "Highlight specialized coursework."
+          ]
+        }
+      },
+      "skills_gap_analysis": {
+        "high_priority_missing": [
+          "Netlify",
+          "AWS",
+          "GitHub"
+        ],
+        "medium_priority_missing": [
+          "CSS",
+          "Express.js",
+          "Deployment"
+        ],
+        "learning_roadmap": [
+          "Complete online courses for missing tech.",
+          "Build 2 small projects using new stack."
+        ]
+      },
+      "experience_enhancement": [
+        "Use STAR method for bullets.",
+        "Include impact numbers ($ or %)."
+      ],
+      "project_showcase_tips": [
+        "Add GitHub links.",
+        "Describe the tools used clearly."
+      ],
+      "ats_optimization_checklist": [
+        "Use standard headings.",
+        "Remove complex formatting.",
+        "Target keyword density."
+      ],
+      "action_plan": [
+        "Obtain Netlify certification.",
+        "Rewrite experience bullets to include results.",
+        "Update projects with links to source code.",
+        "Ensure skills keywords are easily scannable."
+      ]
+    },
+    "analysis": {
+      "parameter_scores": {
+        "skills": 35.97,
+        "experience": 35.0,
+        "education": 48.0,
+        "projects": 0,
+        "ats": 85.0
+      },
+      "final_score": 38.84,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 35.97,
+        "experience": 35.0,
+        "education": 48.0,
+        "projects": 0,
+        "format": 85.0
+      },
+      "feedback": {
+        "skills": "Found 3 matching skills. Missing: Netlify, AWS, GitHub...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: Unknown. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: DOCX. Sections detected: False."
+      },
+      "recommendation": "REJECT",
+      "recommendation_reasoning": "Rule-based assessment based on 3 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 38.84% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 2 key skills"
+            ],
+            "weaknesses": [
+              "Missing 15 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: Unknown"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Netlify",
+            "AWS",
+            "GitHub"
+          ],
+          "medium_priority_missing": [
+            "CSS",
+            "Express.js",
+            "Deployment"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Netlify certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "React",
+        "SQL"
+      ],
+      "missing_skills": [
+        "Netlify",
+        "AWS",
+        "GitHub",
+        "CSS",
+        "Express.js",
+        "Deployment",
+        "Node.js",
+        "Vercel",
+        "MongoDB",
+        "Authorization",
+        "JavaScript",
+        "Git",
+        "Authentication",
+        "HTML",
+        "REST APIs"
+      ],
+      "overallScore": 38.84
+    },
+    "id": "REF-1040",
+    "timestamp": "Just now"
+  },
+  {
+    "name": "E2E Candidate",
+    "email": "e2e@example.com",
+    "role": "FullStackDeveloper",
+    "resume_text": {
+      "executive_summary": "Rule-based assessment completed. The candidate scored 38.84% for the FullStackDeveloper role.",
+      "category_analysis": {
+        "skills": {
+          "status": "Gap",
+          "strengths": [
+            "Matched 2 key skills"
+          ],
+          "weaknesses": [
+            "Missing 15 required skills"
+          ],
+          "recommendations": [
+            "Focus on learning missing technical skills.",
+            "Update skills section with proficiency levels."
+          ]
+        },
+        "experience": {
+          "status": "Gap",
+          "strengths": [
+            "0 years of total experience"
+          ],
+          "weaknesses": [
+            "Relevant industry experience could be highlighted more."
+          ],
+          "recommendations": [
+            "Quantify achievements with metrics.",
+            "Clarify roles and responsibilities."
+          ]
+        },
+        "education": {
+          "status": "Gap",
+          "strengths": [
+            "Degree: Unknown"
+          ],
+          "weaknesses": [
+            "Consider adding relevant certifications."
+          ],
+          "recommendations": [
+            "Highlight specialized coursework."
+          ]
+        }
+      },
+      "skills_gap_analysis": {
+        "high_priority_missing": [
+          "Netlify",
+          "Authorization",
+          "MongoDB"
+        ],
+        "medium_priority_missing": [
+          "Deployment",
+          "AWS",
+          "Express.js"
+        ],
+        "learning_roadmap": [
+          "Complete online courses for missing tech.",
+          "Build 2 small projects using new stack."
+        ]
+      },
+      "experience_enhancement": [
+        "Use STAR method for bullets.",
+        "Include impact numbers ($ or %)."
+      ],
+      "project_showcase_tips": [
+        "Add GitHub links.",
+        "Describe the tools used clearly."
+      ],
+      "ats_optimization_checklist": [
+        "Use standard headings.",
+        "Remove complex formatting.",
+        "Target keyword density."
+      ],
+      "action_plan": [
+        "Obtain Netlify certification.",
+        "Rewrite experience bullets to include results.",
+        "Update projects with links to source code.",
+        "Ensure skills keywords are easily scannable."
+      ]
+    },
+    "analysis": {
+      "parameter_scores": {
+        "skills": 35.97,
+        "experience": 35.0,
+        "education": 48.0,
+        "projects": 0,
+        "ats": 85.0
+      },
+      "final_score": 38.84,
+      "decision": "Reject",
+      "breakdown": {
+        "skills": 35.97,
+        "experience": 35.0,
+        "education": 48.0,
+        "projects": 0,
+        "format": 85.0
+      },
+      "feedback": {
+        "skills": "Found 3 matching skills. Missing: Netlify, Authorization, MongoDB...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: Unknown. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: DOCX. Sections detected: False."
+      },
+      "recommendation": "REJECT",
+      "recommendation_reasoning": "Rule-based assessment based on 3 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 38.84% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 2 key skills"
+            ],
+            "weaknesses": [
+              "Missing 15 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: Unknown"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Netlify",
+            "Authorization",
+            "MongoDB"
+          ],
+          "medium_priority_missing": [
+            "Deployment",
+            "AWS",
+            "Express.js"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Netlify certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "React",
+        "SQL"
+      ],
+      "missing_skills": [
+        "Netlify",
+        "Authorization",
+        "MongoDB",
+        "Deployment",
+        "AWS",
+        "Express.js",
+        "Vercel",
+        "REST APIs",
+        "CSS",
+        "HTML",
+        "Git",
+        "GitHub",
+        "Node.js",
+        "JavaScript",
+        "Authentication"
+      ],
+      "overallScore": 38.84
+    },
+    "id": "REF-1041",
+    "timestamp": "Just now",
+    "quiz_session_id": "b3fcc5bf-0f7c-4c94-9e7c-fadb507f0777",
+    "quiz_started_at": "2026-08-15T06:11:24.376534+00:00",
+    "quiz_report_full": {
+      "totalScore": 0,
+      "maxScore": 85,
+      "percentage": 0.0,
+      "results": [
+        {
+          "questionId": 7,
+          "question": "If a candidate claims experience with React but the project description only mentions basic reporting, what is the strongest way to challenge that claim in an interview?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "my answer",
+          "correctAnswer": "Ask them to explain feature engineering, modeling tradeoffs, validation logic, and business impact",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 3,
+          "question": "When a resume highlights React and SQL, which practice best validates that those skills were used on a real project?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "my answer",
+          "correctAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 4,
+          "question": "A model built for business analytics system shows strong training accuracy but poor deployment performance. What is the most likely next investigation?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "my answer",
+          "correctAnswer": "Check for data leakage, feature drift, and different production distributions",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 6,
+          "question": "Which Python pattern is most appropriate for checking missing values before training on a dataset used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "my answer",
+          "correctAnswer": "df.isna().sum() and feature imputation",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 1,
+          "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 5,
+          "userAnswer": "my answer",
+          "correctAnswer": "Missing values and schema drift",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 2,
+          "question": "In a FullStackDeveloper project, the feature engineering step is typically used to transform raw inputs into ____ for model learning.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 5,
+          "userAnswer": "my answer",
+          "correctAnswer": "usable features",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 8,
+          "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy when assessing a FullStackDeveloper model used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "my answer",
+          "correctAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 5,
+          "question": "Write a SQL query to count the number of records in a table where React is not null and the value is greater than 0.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "my answer",
+          "correctAnswer": "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name > 0;",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        }
+      ],
+      "overallFeedback": "Technical assessment completed. The backend evaluated your responses and compared them against the role-specific answer key.",
+      "isSelected": false,
+      "isFinished": true
+    },
+    "quiz_score": 0,
+    "interview_session_id": 6,
+    "interview_started_at": "2026-08-15T06:14:02.979644+00:00",
+    "status": "Interview Ready",
+    "final_result": {
+      "final_score": 30.54,
+      "recommendation": "Not Recommended",
+      "round_scores": {
+        "round1": 38.84,
+        "round2": 0.0,
+        "round3": 50.0
+      },
+      "weights": {
+        "round1": 0.4,
+        "round2": 0.3,
+        "round3": 0.3
+      },
+      "status": "completed",
+      "aggregated_at": "2026-08-15T07:59:07.455479+00:00"
+    }
+  },
+  {
+    "email": "e2e@example.com",
+    "name": "E2E Test Candidate",
+    "resume_text": "Python, Pandas, Machine Learning",
+    "role": "DataScienceEngineer",
+    "id": "REF-1042",
+    "timestamp": "Just now"
+  },
+  {
+    "email": "e2e@example.com",
+    "name": "E2E Test Candidate",
+    "resume_text": "Python, Pandas, Machine Learning",
+    "role": "DataScienceEngineer",
+    "id": "REF-1043",
+    "timestamp": "Just now",
+    "quiz_score": 85,
+    "interview_session_id": 8,
+    "interview_started_at": "2026-08-15T06:52:47.096324+00:00",
+    "status": "Interview Ready",
+    "analysis": {
+      "final_score": 38.84
+    },
+    "final_result": {
+      "final_score": 56.04,
+      "recommendation": "Consider",
+      "round_scores": {
+        "round1": 38.84,
+        "round2": 85.0,
+        "round3": 50.0
+      },
+      "weights": {
+        "round1": 0.4,
+        "round2": 0.3,
+        "round3": 0.3
+      },
+      "status": "completed",
+      "aggregated_at": "2026-08-15T06:57:21.155190+00:00"
+    }
+  },
+  {
+    "name": "E2E Candidate Full",
+    "email": "e2e_full@example.com",
+    "role": "DataScienceEngineer",
+    "resume_text": "Python Pandas SQL Machine Learning",
+    "id": "REF-1044",
+    "timestamp": "Just now",
+    "quiz_score": 85.0,
+    "interview_session_id": 10,
+    "interview_started_at": "2026-08-15T08:08:14.607731+00:00",
+    "status": "Interview Ready"
+  }
+]

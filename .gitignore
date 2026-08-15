@@ -1,0 +1,59 @@
+# Ignore environment files
+.env
+**/.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Node
+node_modules/
+/dist
+/build
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local test/verification output
+/analyze_resp.json
+/apply_resp.json
+/candidate_1037_full.json
+/candidates_full.json
+/candidates_out.json
+/final_assessment.json
+/genq.json
+/interview_submit_payload.json
+/last_round2_resp.json
+/matched.json
+/response.json
+/response_9009.json
+/session4.json
+/start2_resp.json
+/tmp_test_app.json
+
+# Local test resume
+/sample_resume.txt
+
+# Databases
+*.db
+
+# Backup/lock files
+*.bak_*
+*.lock
+
+# Build output
+**/dist/
+
+# Test logs
+*.log
+
+# Test/sample resumes
+/resume screener/resume screener/resumes/
