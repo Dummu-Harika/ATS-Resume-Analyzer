@@ -64,7 +64,7 @@ async def verify_aggregator_secret(x_aggregator_secret: str = Header(None)):
 
 
 # Configure CORS from environment (comma-separated list), default to http://localhost:3000 for dev
-_allowed = os.environ.get('ALLOWED_ORIGINS', 'http://localhost:3000')
+_allowed = os.environ.get('ALLOWED_ORIGINS', 'http://localhost:3000,http://localhost:3001')
 _allowed_list = [o.strip() for o in _allowed.split(',') if o.strip()]
 app.add_middleware(
     CORSMiddleware,
@@ -80,7 +80,7 @@ analyzer = DepthAnalyzer(ai_api_key=GEMINI_API_KEY)
 DATA_FILE = "backend/data/applications.json"
 
 # Interview API base (for aggregation)
-INTERVIEW_API = os.environ.get('INTERVIEW_API_URL', 'http://localhost:8004')
+INTERVIEW_API = os.environ.get('INTERVIEW_API_URL', 'http://localhost:8002')
 
 # Aggregator module
 from backend.aggregator import aggregate_candidate
@@ -274,7 +274,7 @@ async def start_round2(payload: dict):
             'relevant_technologies': relevant_technologies,
         }
 
-        QUIZ_API = os.environ.get('QUIZ_API_URL', 'http://localhost:8001')
+        QUIZ_API = os.environ.get('QUIZ_API_URL', 'http://localhost:8003')
         payload = {'field': context.get('role') or 'General', 'context': context}
         resp = requests.post(f"{QUIZ_API}/start_session", json=payload, timeout=20)
         if resp.status_code != 200:
@@ -315,7 +315,7 @@ async def round2_submit(payload: dict):
         if not session_id:
             raise HTTPException(status_code=400, detail='Missing session_id')
 
-        QUIZ_API = os.environ.get('QUIZ_API_URL', 'http://localhost:8001')
+        QUIZ_API = os.environ.get('QUIZ_API_URL', 'http://localhost:8003')
         resp = requests.post(f"{QUIZ_API}/submit_answer", json={'session_id': session_id, 'answer': answer}, timeout=20)
         if resp.status_code != 200:
             raise HTTPException(status_code=502, detail=f"Quiz service error: {resp.text}")
@@ -611,5 +611,5 @@ async def delete_candidate(candidate_id: str, recruiter=Depends(verify_recruiter
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "8002"))
+    port = int(os.environ.get("PORT", "8000"))
     uvicorn.run(app, host="0.0.0.0", port=port)

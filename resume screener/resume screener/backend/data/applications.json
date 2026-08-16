@@ -4384,5 +4384,976 @@
     "interview_session_id": 10,
     "interview_started_at": "2026-08-15T08:08:14.607731+00:00",
     "status": "Interview Ready"
+  },
+  {
+    "email": "test@example.com",
+    "name": "Test Candidate",
+    "role": "Data Scientist",
+    "id": "REF-1045",
+    "timestamp": "Just now"
+  },
+  {
+    "email": "alice@example.com",
+    "name": "Alice Candidate",
+    "role": "DataScienceEngineer",
+    "id": "REF-1046",
+    "timestamp": "Just now",
+    "quiz_session_id": "920d18a3-93f3-4e70-9ebb-bc7e7cbcc5a8",
+    "quiz_started_at": "2026-08-15T16:44:51.499677+00:00",
+    "quiz_score": 85,
+    "interview_session_id": 11,
+    "interview_started_at": "2026-08-15T16:47:45.273728+00:00",
+    "status": "Interview Ready"
+  },
+  {
+    "email": "bob@example.com",
+    "analysis": {
+      "role": "DataScienceEngineer",
+      "parameter_scores": {
+        "projects": 40.5,
+        "experience": 35,
+        "ats": 100,
+        "skills": 57.74,
+        "education": 60
+      },
+      "final_score": 54.9,
+      "overallScore": 54.9
+    },
+    "name": "Bob Applicant",
+    "role": "DataScienceEngineer",
+    "id": "REF-1047",
+    "timestamp": "Just now",
+    "quiz_session_id": "1e3a518a-9458-43bf-bac6-ce728134a6c3",
+    "quiz_started_at": "2026-08-15T16:53:30.136221+00:00",
+    "quiz_score": 88,
+    "interview_session_id": 12,
+    "interview_started_at": "2026-08-15T16:54:08.677303+00:00",
+    "status": "Interview Ready",
+    "final_result": {
+      "final_score": 63.36,
+      "recommendation": "Consider",
+      "round_scores": {
+        "round1": 54.9,
+        "round2": 88.0,
+        "round3": 50.0
+      },
+      "weights": {
+        "round1": 0.4,
+        "round2": 0.3,
+        "round3": 0.3
+      },
+      "status": "completed",
+      "aggregated_at": "2026-08-15T16:56:03.512844+00:00"
+    }
+  },
+  {
+    "email": "e2e@example.com",
+    "analysis": {
+      "parameter_scores": {
+        "projects": 40,
+        "experience": 30,
+        "ats": 100,
+        "skills": 50,
+        "education": 60
+      },
+      "final_score": 50,
+      "overallScore": 50
+    },
+    "name": "E2E Tester",
+    "role": "DataScienceEngineer",
+    "id": "REF-1048",
+    "timestamp": "Just now",
+    "quiz_session_id": "c7de05c7-957b-41d8-a2f9-75eec4886dda",
+    "quiz_started_at": "2026-08-15T17:04:43.706076+00:00",
+    "quiz_score": 85,
+    "interview_session_id": 13,
+    "interview_started_at": "2026-08-15T17:04:47.963402+00:00",
+    "status": "Interview Ready",
+    "final_result": {
+      "final_score": 60.5,
+      "recommendation": "Consider",
+      "round_scores": {
+        "round1": 50.0,
+        "round2": 85.0,
+        "round3": 50.0
+      },
+      "weights": {
+        "round1": 0.4,
+        "round2": 0.3,
+        "round3": 0.3
+      },
+      "status": "completed",
+      "aggregated_at": "2026-08-15T17:05:05.627509+00:00"
+    }
+  },
+  {
+    "name": "Harika",
+    "role": "FullStackDeveloper",
+    "score": 68.77,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 81.17,
+        "experience": 35,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 68.77,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 81.17,
+        "experience": 35,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 16 matching skills. Missing: AWS, SQL, Netlify...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 16 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 68.77% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 10 key skills"
+            ],
+            "weaknesses": [
+              "Missing 7 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "AWS",
+            "SQL",
+            "Netlify"
+          ],
+          "medium_priority_missing": [
+            "Authentication",
+            "Authorization",
+            "Vercel"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain AWS certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "Node.js",
+        "Git",
+        "MongoDB",
+        "React",
+        "JavaScript",
+        "GitHub",
+        "CSS",
+        "REST APIs",
+        "Express.js",
+        "HTML"
+      ],
+      "missing_skills": [
+        "AWS",
+        "SQL",
+        "Netlify",
+        "Authentication",
+        "Authorization",
+        "Vercel",
+        "Deployment"
+      ],
+      "overallScore": 68.77
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1049",
+    "timestamp": "Just now",
+    "quiz_session_id": "24a48fc7-8088-41d8-be09-123446a73f4d",
+    "quiz_started_at": "2026-08-15T17:21:29.135892+00:00",
+    "quiz_report_full": {
+      "totalScore": 0,
+      "maxScore": 85,
+      "percentage": 0.0,
+      "results": [
+        {
+          "questionId": 7,
+          "question": "If a candidate claims experience with Node.js but the project description only mentions basic reporting, what is the strongest way to challenge that claim in an interview?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "(Candidate Skipped)",
+          "correctAnswer": "Ask them to explain feature engineering, modeling tradeoffs, validation logic, and business impact",
+          "feedback": "No answer submitted."
+        },
+        {
+          "questionId": 8,
+          "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy when assessing a FullStackDeveloper model used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "hbnhnji",
+          "correctAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 5,
+          "question": "Write a SQL query to count the number of records in a table where Node.js is not null and the value is greater than 0.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "correctAnswer": "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name > 0;",
+          "feedback": "No answer submitted."
+        },
+        {
+          "questionId": 6,
+          "question": "Which Python pattern is most appropriate for checking missing values before training on a dataset used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "nhnhji",
+          "correctAnswer": "df.isna().sum() and feature imputation",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 4,
+          "question": "A model built for business analytics system shows strong training accuracy but poor deployment performance. What is the most likely next investigation?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "(Candidate Skipped)",
+          "correctAnswer": "Check for data leakage, feature drift, and different production distributions",
+          "feedback": "No answer submitted."
+        },
+        {
+          "questionId": 3,
+          "question": "When a resume highlights Node.js and Git, which practice best validates that those skills were used on a real project?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "Ignoring the project and focusing on certificates",
+          "correctAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 1,
+          "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 5,
+          "userAnswer": "Font rendering",
+          "correctAnswer": "Missing values and schema drift",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 2,
+          "question": "In a FullStackDeveloper project, the feature engineering step is typically used to transform raw inputs into ____ for model learning.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 5,
+          "userAnswer": "ai",
+          "correctAnswer": "usable features",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        }
+      ],
+      "overallFeedback": "Technical assessment completed. The backend evaluated your responses and compared them against the role-specific answer key.",
+      "isSelected": false,
+      "isFinished": true
+    },
+    "quiz_score": 0
+  },
+  {
+    "name": "John",
+    "role": "FullStackDeveloper",
+    "score": 68.77,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 81.17,
+        "experience": 35,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 68.77,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 81.17,
+        "experience": 35,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 16 matching skills. Missing: AWS, SQL, Netlify...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 16 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 68.77% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 10 key skills"
+            ],
+            "weaknesses": [
+              "Missing 7 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "AWS",
+            "SQL",
+            "Netlify"
+          ],
+          "medium_priority_missing": [
+            "Authentication",
+            "Authorization",
+            "Vercel"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain AWS certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "Node.js",
+        "Git",
+        "MongoDB",
+        "React",
+        "JavaScript",
+        "GitHub",
+        "CSS",
+        "REST APIs",
+        "Express.js",
+        "HTML"
+      ],
+      "missing_skills": [
+        "AWS",
+        "SQL",
+        "Netlify",
+        "Authentication",
+        "Authorization",
+        "Vercel",
+        "Deployment"
+      ],
+      "overallScore": 68.77
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1050",
+    "timestamp": "Just now",
+    "quiz_session_id": "b7bce74d-0e2c-41d1-ac20-55c8f06813e3",
+    "quiz_started_at": "2026-08-15T17:28:03.428261+00:00",
+    "quiz_report_full": {
+      "totalScore": 15,
+      "maxScore": 85,
+      "percentage": 17.65,
+      "results": [
+        {
+          "questionId": 5,
+          "question": "Write a SQL query to count the number of records in a table where Node.js is not null and the value is greater than 0.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "SELECT COUNT(*)\nFROM youy_table_name\nwhere Node_js IS NOT NULL\n AND Node_js>0;\n",
+          "correctAnswer": "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name > 0;",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 8,
+          "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy when assessing a FullStackDeveloper model used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "F1 Score,Recall,Precision",
+          "correctAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 6,
+          "question": "Which Python pattern is most appropriate for checking missing values before training on a dataset used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "pandas",
+          "correctAnswer": "df.isna().sum() and feature imputation",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 2,
+          "question": "In a FullStackDeveloper project, the feature engineering step is typically used to transform raw inputs into ____ for model learning.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 5,
+          "userAnswer": "features\n",
+          "correctAnswer": "usable features",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 1,
+          "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 5,
+          "maxPoints": 5,
+          "userAnswer": "Missing values and schema drift",
+          "correctAnswer": "Missing values and schema drift",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 7,
+          "question": "If a candidate claims experience with Node.js but the project description only mentions basic reporting, what is the strongest way to challenge that claim in an interview?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "dfsgfdhdfh",
+          "correctAnswer": "Ask them to explain feature engineering, modeling tradeoffs, validation logic, and business impact",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 3,
+          "question": "When a resume highlights Node.js and Git, which practice best validates that those skills were used on a real project?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "correctAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 4,
+          "question": "A model built for business analytics system shows strong training accuracy but poor deployment performance. What is the most likely next investigation?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "dfsdfsg",
+          "correctAnswer": "Check for data leakage, feature drift, and different production distributions",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        }
+      ],
+      "overallFeedback": "Technical assessment completed. The backend evaluated your responses and compared them against the role-specific answer key.",
+      "isSelected": false,
+      "isFinished": true
+    },
+    "quiz_score": 17.65
+  },
+  {
+    "name": "John",
+    "role": "FullStackDeveloper",
+    "score": 68.77,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 81.17,
+        "experience": 35,
+        "education": 90,
+        "projects": 40.5,
+        "ats": 100
+      },
+      "final_score": 68.77,
+      "decision": "Shortlist",
+      "breakdown": {
+        "skills": 81.17,
+        "experience": 35,
+        "education": 90,
+        "projects": 40.5,
+        "format": 100
+      },
+      "feedback": {
+        "skills": "Found 16 matching skills. Missing: Authorization, Authentication, Netlify...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: B.Tech. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: PDF. Sections detected: True."
+      },
+      "recommendation": "SHORTLIST",
+      "recommendation_reasoning": "Rule-based assessment based on 16 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 68.77% for the FullStackDeveloper role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Strength",
+            "strengths": [
+              "Matched 10 key skills"
+            ],
+            "weaknesses": [
+              "Missing 7 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: B.Tech"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Authorization",
+            "Authentication",
+            "Netlify"
+          ],
+          "medium_priority_missing": [
+            "Deployment",
+            "SQL",
+            "AWS"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Authorization certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "FullStackDeveloper",
+      "matched_skills": [
+        "React",
+        "REST APIs",
+        "MongoDB",
+        "GitHub",
+        "Git",
+        "CSS",
+        "Express.js",
+        "HTML",
+        "Node.js",
+        "JavaScript"
+      ],
+      "missing_skills": [
+        "Authorization",
+        "Authentication",
+        "Netlify",
+        "Deployment",
+        "SQL",
+        "AWS",
+        "Vercel"
+      ],
+      "overallScore": 68.77
+    },
+    "status": "Shortlisted",
+    "resume_url": "",
+    "id": "REF-1051",
+    "timestamp": "Just now",
+    "quiz_session_id": "f430d330-1455-4255-a94c-32d48fb94072",
+    "quiz_started_at": "2026-08-15T18:01:53.484852+00:00",
+    "quiz_report_full": {
+      "totalScore": 15,
+      "maxScore": 85,
+      "percentage": 17.65,
+      "results": [
+        {
+          "questionId": 5,
+          "question": "Write a SQL query to count the number of records in a table where React is not null and the value is greater than 0.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "SELECT COUNT(*) AS total_records\nFROM your_table_name\nWHERE React > 0;\n",
+          "correctAnswer": "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name > 0;",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 2,
+          "question": "In a FullStackDeveloper project, the feature engineering step is typically used to transform raw inputs into ____ for model learning.",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 5,
+          "userAnswer": " features",
+          "correctAnswer": "usable features",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 6,
+          "question": "Which Python pattern is most appropriate for checking missing values before training on a dataset used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "df.isnull().sum() (or df.isna().sum())",
+          "correctAnswer": "df.isna().sum() and feature imputation",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 3,
+          "question": "When a resume highlights React and REST APIs, which practice best validates that those skills were used on a real project?",
+          "isCorrect": true,
+          "pointsAwarded": 10,
+          "maxPoints": 10,
+          "userAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "correctAnswer": "Evaluating design tradeoffs and model metrics from the project",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 8,
+          "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy when assessing a FullStackDeveloper model used in business analytics system?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "F1-Score",
+          "correctAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 4,
+          "question": "A model built for business analytics system shows strong training accuracy but poor deployment performance. What is the most likely next investigation?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 10,
+          "userAnswer": "overfitting",
+          "correctAnswer": "Check for data leakage, feature drift, and different production distributions",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        },
+        {
+          "questionId": 1,
+          "question": "Which data quality issue is most important to validate before training a model for business analytics system?",
+          "isCorrect": true,
+          "pointsAwarded": 5,
+          "maxPoints": 5,
+          "userAnswer": "Missing values and schema drift",
+          "correctAnswer": "Missing values and schema drift",
+          "feedback": "Correct."
+        },
+        {
+          "questionId": 7,
+          "question": "If a candidate claims experience with React but the project description only mentions basic reporting, what is the strongest way to challenge that claim in an interview?",
+          "isCorrect": false,
+          "pointsAwarded": 0,
+          "maxPoints": 15,
+          "userAnswer": "deep, architectural probing questions",
+          "correctAnswer": "Ask them to explain feature engineering, modeling tradeoffs, validation logic, and business impact",
+          "feedback": "Not fully correct. Review the technical concept and answer again."
+        }
+      ],
+      "overallFeedback": "Technical assessment completed. The backend evaluated your responses and compared them against the role-specific answer key.",
+      "isSelected": false,
+      "isFinished": true
+    },
+    "quiz_score": 17.65
+  },
+  {
+    "name": "Alice Tester",
+    "role": "DataScienceEngineer",
+    "score": 47.25,
+    "analysis": {
+      "parameter_scores": {
+        "skills": 50,
+        "experience": 30,
+        "education": 48,
+        "projects": 40.5,
+        "ats": 85
+      },
+      "final_score": 47.25,
+      "decision": "Hold",
+      "breakdown": {
+        "skills": 50,
+        "experience": 30,
+        "education": 48,
+        "projects": 40.5,
+        "format": 85
+      },
+      "feedback": {
+        "skills": "Found 3 matching skills. Missing: Model Evaluation, Feature Engineering, Jupyter Notebook...",
+        "experience": "Exp 0y < Min 2y",
+        "education": "Degree detected: Unknown. Preferred: B.Tech.",
+        "projects": "No strong project section detected or lacks keywords.",
+        "ats": "Format: DOCX. Sections detected: False."
+      },
+      "recommendation": "HOLD",
+      "recommendation_reasoning": "Rule-based assessment based on 3 matched skills and 0 years of experience.",
+      "final_report": {
+        "executive_summary": "Rule-based assessment completed. The candidate scored 47.25% for the DataScienceEngineer role.",
+        "category_analysis": {
+          "skills": {
+            "status": "Gap",
+            "strengths": [
+              "Matched 3 key skills"
+            ],
+            "weaknesses": [
+              "Missing 9 required skills"
+            ],
+            "recommendations": [
+              "Focus on learning missing technical skills.",
+              "Update skills section with proficiency levels."
+            ]
+          },
+          "experience": {
+            "status": "Gap",
+            "strengths": [
+              "0 years of total experience"
+            ],
+            "weaknesses": [
+              "Relevant industry experience could be highlighted more."
+            ],
+            "recommendations": [
+              "Quantify achievements with metrics.",
+              "Clarify roles and responsibilities."
+            ]
+          },
+          "education": {
+            "status": "Gap",
+            "strengths": [
+              "Degree: Unknown"
+            ],
+            "weaknesses": [
+              "Consider adding relevant certifications."
+            ],
+            "recommendations": [
+              "Highlight specialized coursework."
+            ]
+          }
+        },
+        "skills_gap_analysis": {
+          "high_priority_missing": [
+            "Model Evaluation",
+            "Feature Engineering",
+            "Jupyter Notebook"
+          ],
+          "medium_priority_missing": [
+            "Probability",
+            "Statistics",
+            "NumPy"
+          ],
+          "learning_roadmap": [
+            "Complete online courses for missing tech.",
+            "Build 2 small projects using new stack."
+          ]
+        },
+        "experience_enhancement": [
+          "Use STAR method for bullets.",
+          "Include impact numbers ($ or %)."
+        ],
+        "project_showcase_tips": [
+          "Add GitHub links.",
+          "Describe the tools used clearly."
+        ],
+        "ats_optimization_checklist": [
+          "Use standard headings.",
+          "Remove complex formatting.",
+          "Target keyword density."
+        ],
+        "action_plan": [
+          "Obtain Model Evaluation certification.",
+          "Rewrite experience bullets to include results.",
+          "Update projects with links to source code.",
+          "Ensure skills keywords are easily scannable."
+        ]
+      },
+      "role": "DataScienceEngineer",
+      "matched_skills": [
+        "SQL",
+        "Python",
+        "Pandas"
+      ],
+      "missing_skills": [
+        "Model Evaluation",
+        "Feature Engineering",
+        "Jupyter Notebook",
+        "Probability",
+        "Statistics",
+        "NumPy",
+        "Machine Learning",
+        "Data Cleaning",
+        "Data Visualization"
+      ],
+      "overallScore": 47.25
+    },
+    "status": "On Hold",
+    "resume_url": "",
+    "id": "REF-1052",
+    "timestamp": "Just now"
+  },
+  {
+    "email": "e2e@example.com",
+    "analysis": {
+      "parameter_scores": {
+        "projects": 40,
+        "experience": 30,
+        "ats": 100,
+        "skills": 50,
+        "education": 60
+      },
+      "final_score": 50,
+      "overallScore": 50
+    },
+    "name": "E2E Tester",
+    "role": "DataScienceEngineer",
+    "id": "REF-1053",
+    "timestamp": "Just now",
+    "quiz_session_id": "7a3e307b-28a7-455f-8612-b3fb24351314",
+    "quiz_started_at": "2026-08-16T03:18:45.480620+00:00",
+    "quiz_score": 85,
+    "interview_session_id": 14,
+    "interview_started_at": "2026-08-16T03:18:50.827076+00:00",
+    "status": "Interview Ready"
+  },
+  {
+    "email": "e2e@example.com",
+    "analysis": {
+      "parameter_scores": {
+        "projects": 40,
+        "experience": 30,
+        "ats": 100,
+        "skills": 50,
+        "education": 60
+      },
+      "final_score": 50,
+      "overallScore": 50
+    },
+    "name": "E2E Tester",
+    "role": "DataScienceEngineer",
+    "id": "REF-1054",
+    "timestamp": "Just now",
+    "quiz_session_id": "9134d206-a258-44e1-8693-37f9c89d827a",
+    "quiz_started_at": "2026-08-16T03:26:34.540658+00:00",
+    "quiz_score": 85,
+    "interview_session_id": 15,
+    "interview_started_at": "2026-08-16T03:26:38.849917+00:00",
+    "status": "Interview Ready"
   }
 ]

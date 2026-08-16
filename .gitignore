@@ -57,3 +57,5 @@ Thumbs.db
 
 # Test/sample resumes
 /resume screener/resume screener/resumes/
+
+.env
