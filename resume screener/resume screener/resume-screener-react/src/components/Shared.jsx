@@ -7,6 +7,7 @@ export const Card = ({ children, className = '' }) => (
 );
 
 export const Badge = ({ status }) => {
+    const normalizedStatus = typeof status === 'string' ? status : 'submitted';
     const getStatusClass = (s) => {
         switch (s.toLowerCase()) {
             case 'shortlisted': return 'status-shortlisted';
@@ -18,8 +19,8 @@ export const Badge = ({ status }) => {
     };
 
     return (
-        <span className={`status-badge ${getStatusClass(status)}`}>
-            {status}
+        <span className={`status-badge ${getStatusClass(normalizedStatus)}`}>
+            {normalizedStatus}
         </span>
     );
 };

@@ -217,8 +217,8 @@ export default function Recruiter() {
                     </Card>
 
                     <div className="dashboard-grid">
-                        {filteredCandidates.map(candidate => (
-                            <Card key={candidate.id} className="candidate-card" style={{ transition: 'all 0.3s ease' }}>
+                        {filteredCandidates.map((candidate, index) => (
+                            <Card key={`${candidate.id}-${index}`} className="candidate-card" style={{ transition: 'all 0.3s ease' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
                                     <div>
                                         <h3 style={{ marginBottom: '4px', fontSize: '1.2rem' }}>{candidate.name}</h3>
