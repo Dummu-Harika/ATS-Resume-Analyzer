@@ -149,26 +149,39 @@ def sanitize_public_question(question: dict) -> dict:
     return public_question
 
 
-def generate_single_question(field: str, difficulty: str, excluded_questions: list):
+def generate_single_question(field: str, difficulty: str, excluded_questions: list, qtype: str = None):
+    # qtype (optional) lets callers request a specific question type (mcq, sql, code_snippet, etc.)
+    requested_type = str(qtype or 'mcq').lower()
+    type_hint = f"Type: \"{requested_type}\". MUST generate this exact type and nothing else."
     prompt = f"""
     You are an expert technical interviewer.
-    Generate exactly ONE programming quiz question for the field: "{field}".
+    Generate exactly ONE real technical question for the field: "{field}".
     Difficulty: "{difficulty}" (Easy: 5 pts, Medium: 10 pts, Hard: 15 pts).
-
-    Types (randomly pick one):
-    - Multiple Choice Questions (MCQs) - 4 options
-    - Fill in the Blanks - Code or concept completion
-    - Code Snippet Filling - Complete missing code segments
-
+    
+    {type_hint}
+    
+    The question must be technically meaningful and role-specific for "{field}".
+    It must not be a placeholder or a generic filler question.
+    It must not be a repeated or near-duplicate of any excluded question.
+    
+    Allowed types:
+    - mcq
+    - sql
+    - output_prediction
+    - code_debugging
+    - scenario
+    - conceptual
+    - code_snippet
+    
     Excluded Questions (to ensure uniqueness):
     {json.dumps(excluded_questions)}
-
+ 
     Output Format (JSON):
     {{
       "id": string_or_int,
       "difficulty": "{difficulty}",
-      "type": "mcq|fill_blank|code_snippet",
-      "question": "Question text here",
+      "type": "{requested_type}",
+      "question": "Role-specific technical question text here",
       "options": ["Option A", "Option B", "Option C", "Option D"], 
       "correctAnswer": "The correct answer or code",
       "explanation": "Brief explanation of the correct answer",
@@ -178,7 +191,7 @@ def generate_single_question(field: str, difficulty: str, excluded_questions: li
     
     if client is None:
         if MOCK_AI:
-            return get_mock_single_question(field, difficulty)
+            return get_mock_single_question(field, difficulty, qtype)
         raise RuntimeError("Gemini client unavailable: GEMINI_API_KEY is missing and MOCK_AI is false")
     try:
         response = client.models.generate_content(
@@ -195,7 +208,7 @@ def generate_single_question(field: str, difficulty: str, excluded_questions: li
         print(f"CRITICAL: Gemini API Error (generate_single_question): {str(e)}")
         print(traceback.format_exc())
         if MOCK_AI:
-            return get_mock_single_question(field, difficulty)
+            return get_mock_single_question(field, difficulty, qtype)
         raise
 
 def evaluate_single_answer(question: dict, user_answer: str):
@@ -294,8 +307,8 @@ def generate_full_quiz(field: str, context: dict = None):
     }}
 
     Constraints:
-    - Generate between 6 and 10 questions total.
-    - Aim for roughly 3 easy, 3 medium, and 2 hard questions, but do not force exact counts if the candidate context supports a valid spread.
+    - Generate between 10 and 15 questions total.
+    - Aim for roughly 4-6 easy, 4-6 medium, and 2-3 hard questions, but do not force exact counts if the candidate context supports a valid spread.
     - Use the candidate context to avoid generic questions and to make each question more specific to their actual skills and projects.
     - Do not include any extra keys outside the schema.
     - Ensure every question has a valid `correctAnswer` and `explanation` internally for server-side grading.
@@ -428,20 +441,28 @@ def get_mock_full_quiz(field: str, context: dict = None):
             "explanation": "Feature quality and schema consistency directly affect train/test reliability.",
         },
         {
-            "type": "fill_blank",
+            "type": "sql",
             "difficulty": "easy",
-            "question": "In a {field} project, the feature engineering step is typically used to transform raw inputs into ____ for model learning.",
+            "question": "Write a SQL query to count rows where {skill1} is not null and the value is greater than 0.",
             "options": [],
-            "correctAnswer": "usable features",
-            "explanation": "Model training depends on structured, meaningful inputs rather than raw data alone.",
+            "correctAnswer": "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name > 0;",
+            "explanation": "This validates filtering logic and null handling in data pipelines.",
         },
         {
-            "type": "mcq",
+            "type": "output_prediction",
             "difficulty": "medium",
-            "question": "When a resume highlights {skill1} and {skill2}, which practice best validates that those skills were used on a real project?",
-            "options": ["Evaluating design tradeoffs and model metrics from the project", "Rechecking only the resume formatting", "Ignoring the project and focusing on certificates", "Counting the number of libraries mentioned"],
-            "correctAnswer": "Evaluating design tradeoffs and model metrics from the project",
-            "explanation": "Strong technical evidence comes from explaining decisions, systems, and measured outcomes.",
+            "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a {field} model used in {project}?",
+            "options": ["Precision-Recall tradeoff metrics such as F1 or AUC-PR", "Average row count", "Dataset file size", "Color-coded charts only"],
+            "correctAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+            "explanation": "Imbalanced classes make raw accuracy misleading and require targeted metrics.",
+        },
+        {
+            "type": "code_debugging",
+            "difficulty": "medium",
+            "question": "A pipeline for {project} drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+            "options": ["Data leakage and biased evaluation", "Faster processing", "Color output changes", "Shorter model names"],
+            "correctAnswer": "Data leakage and biased evaluation",
+            "explanation": "Leakage and leakage-like issues often arise from improper preprocessing before train/test separation.",
         },
         {
             "type": "scenario",
@@ -452,12 +473,12 @@ def get_mock_full_quiz(field: str, context: dict = None):
             "explanation": "Good training performance can hide distribution drift and leakage issues in production.",
         },
         {
-            "type": "sql",
-            "difficulty": "medium",
-            "question": "Write a SQL query to count the number of records in a table where {skill1} is not null and the value is greater than 0.",
+            "type": "conceptual",
+            "difficulty": "hard",
+            "question": "If a candidate claims experience with {skill1} but the project description only mentions basic reporting, what is the strongest way to challenge that claim in an interview?",
             "options": [],
-            "correctAnswer": "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name > 0;",
-            "explanation": "This validates filtering logic and null handling in data pipelines.",
+            "correctAnswer": "Ask them to explain feature engineering, modeling tradeoffs, validation logic, and business impact",
+            "explanation": "Claims should be tested through hands-on reasoning and project-specific technical decisions.",
         },
         {
             "type": "code_snippet",
@@ -468,20 +489,12 @@ def get_mock_full_quiz(field: str, context: dict = None):
             "explanation": "Data quality checks and imputation are central to reliable model training.",
         },
         {
-            "type": "conceptual",
-            "difficulty": "hard",
-            "question": "If a candidate claims experience with {skill1} but the project description only mentions basic reporting, what is the strongest way to challenge that claim in an interview?",
-            "options": [],
-            "correctAnswer": "Ask them to explain feature engineering, modeling tradeoffs, validation logic, and business impact",
-            "explanation": "Claims should be tested through hands-on reasoning and project-specific technical decisions.",
-        },
-        {
-            "type": "output_prediction",
-            "difficulty": "hard",
-            "question": "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy when assessing a {field} model used in {project}?",
-            "options": ["Precision-Recall tradeoff metrics such as F1 or AUC-PR", "Average row count", "Dataset file size", "Color-coded charts only"],
-            "correctAnswer": "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
-            "explanation": "Imbalanced classes make raw accuracy misleading and require targeted metrics.",
+            "type": "mcq",
+            "difficulty": "medium",
+            "question": "When a resume highlights {skill1} and {skill2}, which practice best validates that those skills were used on a real project?",
+            "options": ["Evaluating design tradeoffs and model metrics from the project", "Rechecking only the resume formatting", "Ignoring the project and focusing on certificates", "Counting the number of libraries mentioned"],
+            "correctAnswer": "Evaluating design tradeoffs and model metrics from the project",
+            "explanation": "Strong technical evidence comes from explaining decisions, systems, and measured outcomes.",
         },
     ]
 
@@ -508,6 +521,34 @@ def get_mock_full_quiz(field: str, context: dict = None):
             "grading_hint": "Use resume-aware technical reasoning and project-specific evidence.",
         }
         question_list.append(q)
+
+    # Ensure the mock quiz returns exactly 15 questions for local/dev use.
+    # If templates are fewer than 15, duplicate and slightly vary them to reach 15.
+    idx_offset = len(question_list)
+    j = 0
+    while len(question_list) < 15:
+        base = templates[j % len(templates)]
+        q_text = base["question"].format(
+            field=field,
+            project=project_focus,
+            skill1=skill1,
+            skill2=skill2,
+        ) + f" (variant {len(question_list) + 1})"
+        q = {
+            "id": len(question_list) + 1,
+            "difficulty": base["difficulty"],
+            "type": base["type"],
+            "question": q_text,
+            "options": base.get("options", []),
+            "correctAnswer": base["correctAnswer"],
+            "explanation": base["explanation"],
+            "points": 5 if base["difficulty"] == "easy" else 10 if base["difficulty"] == "medium" else 15,
+            "internal_prompt": f"Role: {field}; candidate context: {json.dumps(context, ensure_ascii=False)[:200]}",
+            "grading_hint": "Use resume-aware technical reasoning and project-specific evidence.",
+        }
+        question_list.append(q)
+        j += 1
+
     random.shuffle(question_list)
     return {"questions": question_list}
 
@@ -546,16 +587,44 @@ def get_mock_evaluation_result(questions: list, user_answers_list: list):
     }
 
 
-def get_mock_single_question(field, difficulty):
+def get_mock_single_question(field, difficulty, qtype=None):
     points = 5 if difficulty == "easy" else 10 if difficulty == "medium" else 15
-    return {
+    qtype = (qtype or "mcq").lower()
+    # Simple mock content for requested qtype
+    base = {
         "id": random.randint(100, 999),
         "difficulty": difficulty,
-        "type": "mcq",
-        "question": f"Explain the core principles of {field} in the context of persistent storage.",
-        "options": ["Option A", "Option B", "Option C", "Option D"],
-        "correctAnswer": "Option A",
+        "type": qtype,
+        "question": f"(MOCK) {qtype} question for {field}",
+        "options": [],
+        "correctAnswer": None,
         "explanation": "Automatic fallback question.",
         "points": points
     }
+    if qtype == 'mcq':
+        base['options'] = ["Option A", "Option B", "Option C", "Option D"]
+        base['correctAnswer'] = "Option A"
+        base['question'] = f"(MOCK) Which metric best indicates business impact for {field}?"
+    elif qtype == 'sql':
+        base['question'] = f"(MOCK) Write a SQL query for {field} to count rows where a value is greater than 0."
+        base['correctAnswer'] = "SELECT COUNT(*) FROM table_name WHERE column_name > 0;"
+    elif qtype == 'output_prediction' or qtype == 'code_output':
+        base['question'] = f"(MOCK) Predict the output of a code snippet relevant to {field}."
+        base['correctAnswer'] = "42"
+    elif qtype == 'code_debugging' or qtype == 'debugging':
+        base['question'] = f"(MOCK) Debug the pipeline logic in a {field} example and identify the root cause."
+        base['correctAnswer'] = "The bug is an off-by-one / incorrect condition."
+    elif qtype == 'scenario':
+        base['question'] = f"(MOCK) Given a production scenario in {field}, what would you investigate first?"
+        base['correctAnswer'] = "Check data drift and model degradation in production."
+    elif qtype == 'conceptual':
+        base['question'] = f"(MOCK) Explain the trade-off between precision and recall in {field}."
+        base['correctAnswer'] = "Higher precision reduces false positives; higher recall reduces false negatives."
+    elif qtype == 'code_snippet' or qtype == 'code_completion' or qtype == 'coding':
+        base['question'] = f"(MOCK) Complete the code snippet for a technical task in {field}."
+        base['correctAnswer'] = "def example(): return 42"
+    else:
+        base['question'] = f"(MOCK) Generic technical question for {field}"
+        base['correctAnswer'] = "Answer"
+    return base
 

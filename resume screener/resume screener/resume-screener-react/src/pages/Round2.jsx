@@ -97,10 +97,6 @@ export default function Round2() {
     const handleSubmit = async () => {
         if (!question || loading || submitted) return;
         const answerValue = selected || '(Candidate Skipped)';
-        const finalSubmit = () => window.confirm('Submit this answer and continue?');
-        if (answerValue !== '(Candidate Skipped)' && !finalSubmit()) {
-            return;
-        }
         persistAnswer(question, answerValue);
         setSubmitted(true);
         setLoading(true);

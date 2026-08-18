@@ -88,7 +88,7 @@ const VoiceInterview = () => {
         }
     };
 
-    const handleNextQuestion = () => {
+    const handleNextQuestion = async () => {
         setShowEvaluation(false);
         setCurrentEvaluation(null);
         setCurrentTranscript('');
@@ -96,8 +96,16 @@ const VoiceInterview = () => {
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(prev => prev + 1);
         } else {
-            // All questions answered, go to final results
-            navigate('/final-results', { state: { sessionId: session.id } });
+            // All questions answered, fetch final assessment and navigate
+            try {
+                setSubmitting(true);
+                const finalAssessment = await api.getFinalAssessment(session.id);
+                setSubmitting(false);
+                navigate('/final-results', { state: finalAssessment });
+            } catch (err) {
+                setError('Failed to fetch final assessment: ' + err.message);
+                setSubmitting(false);
+            }
         }
     };
 

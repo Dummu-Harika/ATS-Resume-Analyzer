@@ -30,6 +30,79 @@ class QuizSession:
         if not self.all_questions:
             self.all_questions = last_questions if last_questions else []
 
+        # Enforce a balanced composition of 15 questions for Round 2.
+        desired_count = 15
+        target_types = [
+            'mcq',
+            'sql',
+            'output_prediction',
+            'code_debugging',
+            'scenario',
+            'conceptual',
+            'code_snippet',
+            'mcq',
+            'sql',
+            'output_prediction',
+            'code_debugging',
+            'scenario',
+            'conceptual',
+            'code_snippet',
+            'mcq'
+        ]
+
+        # Build lookup of existing questions by type
+        existing_by_type = {}
+        for q in list(self.all_questions):
+            t = str(q.get('type', 'mcq')).lower()
+            existing_by_type.setdefault(t, []).append(q)
+
+        selected = []
+        excluded_texts = [q.get('question') for q in self.all_questions if isinstance(q.get('question'), str)]
+
+        for desired in target_types:
+            # If we have an existing question of this type, prefer using it
+            bucket = existing_by_type.get(desired)
+            if bucket and len(bucket) > 0:
+                q = bucket.pop(0)
+                selected.append(q)
+                if isinstance(q.get('question'), str):
+                    excluded_texts.append(q.get('question'))
+                continue
+
+            # Otherwise, attempt to generate a single question of the desired type
+            try:
+                q = gemini_service.generate_single_question(field, random.choice(['easy', 'medium', 'hard']), excluded_texts, qtype=desired)
+                try:
+                    normalized = gemini_service._normalize_question(q, len(selected) + 1)
+                except Exception:
+                    # Ensure minimal fields if normalization fails
+                    q['id'] = len(selected) + 1
+                    if 'points' not in q:
+                        q['points'] = gemini_service._difficulty_points(q.get('difficulty', 'easy'))
+                    normalized = q
+                if normalized.get('question'):
+                    excluded_texts.append(normalized.get('question'))
+                selected.append(normalized)
+            except Exception:
+                # Fallback to mock single question for that type
+                mq = gemini_service.get_mock_single_question(field, random.choice(['easy', 'medium', 'hard']), desired)
+                mq['id'] = len(selected) + 1
+                selected.append(mq)
+
+        # If there were more existing questions of other types, fill any remaining slots (shouldn't happen)
+        leftovers = []
+        for lst in existing_by_type.values():
+            leftovers.extend(lst)
+        while len(selected) < desired_count and leftovers:
+            selected.append(leftovers.pop(0))
+
+        # Final safety: if still fewer than desired_count, pad with mock questions
+        while len(selected) < desired_count:
+            mq = gemini_service.get_mock_single_question(field, random.choice(['easy','medium','hard']))
+            mq['id'] = len(selected) + 1
+            selected.append(mq)
+
+        self.all_questions = selected
         random.shuffle(self.all_questions)
         self.public_questions = [gemini_service.sanitize_public_question(q) for q in self.all_questions]
 
