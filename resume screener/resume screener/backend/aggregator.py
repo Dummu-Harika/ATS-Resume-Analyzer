@@ -53,23 +53,58 @@ def _normalize_score(raw: Optional[float]) -> Optional[float]:
 
 
 def _fetch_interview_score(interview_api_base: str, session_id) -> Optional[float]:
-    """Call interview service to fetch final assessment overall_score. Returns numeric score or None if not found."""
+    """Call interview service to fetch final assessment overall_score. Returns numeric score or None if not found.
+
+    Performs a small bounded retry to tolerate brief propagation/race conditions where the interview
+    service has just finished computing the final assessment but it is not yet available over HTTP.
+    """
+    max_retries = 3
+    delay_seconds = 1
+    last_exception = None
+    for attempt in range(1, max_retries + 1):
+        try:
+            url = f"{interview_api_base.rstrip('/')}/api/interview/final-score/{session_id}"
+            try:
+                resp = requests.get(url, timeout=5)
+            except Exception as e_primary:
+                # If base contains localhost, try IPv4 fallback to handle IPv6/localhost resolution issues
+                if 'localhost' in interview_api_base:
+                    alt_base = interview_api_base.replace('localhost', '127.0.0.1')
+                    alt_url = f"{alt_base.rstrip('/')}/api/interview/final-score/{session_id}"
+                    try:
+                        resp = requests.get(alt_url, timeout=5)
+                    except Exception as e_alt:
+                        # both attempts failed
+                        last_exception = (e_primary, e_alt)
+                        resp = None
+                else:
+                    last_exception = e_primary
+                    resp = None
+            if resp is not None:
+                if resp.status_code == 200:
+                    data = resp.json()
+                    # Expect key overall_score or overallScore
+                    score = data.get('overall_score') or data.get('overallScore') or data.get('overall')
+                    if score is None:
+                        return None
+                    return float(score)
+                else:
+                    # If interview service returns 400 (no answers) or 404, treat as missing
+                    # but retry briefly in case of transient timing issues
+                    last_exception = Exception(f"Interview service returned status {resp.status_code}")
+        except Exception as ex:
+            last_exception = ex
+        # If not last attempt, wait a bit before retrying
+        if attempt < max_retries:
+            import time
+            time.sleep(delay_seconds)
+    # If we reach here, all attempts failed; propagate None so caller can handle missing data
+    # Log the last exception for diagnostics (non-fatal here)
     try:
-        url = f"{interview_api_base.rstrip('/')}/api/interview/final-score/{session_id}"
-        resp = requests.get(url, timeout=10)
-        if resp.status_code == 200:
-            data = resp.json()
-            # Expect key overall_score or overallScore
-            score = data.get('overall_score') or data.get('overallScore') or data.get('overall')
-            if score is None:
-                return None
-            return float(score)
-        else:
-            # If interview service returns 400 (no answers) or 404, treat as missing
-            return None
+        print(f"DEBUG: _fetch_interview_score failed after {max_retries} attempts: {last_exception}")
     except Exception:
-        # On error contacting service, propagate as None to be handled by caller
-        return None
+        pass
+    return None
 
 
 def _recommendation_from_score(score: float) -> str:
