@@ -1,0 +1,214 @@
+.results-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fdfdfd;
+    border-radius: 20px;
+}
+
+.overall-score-card.tall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.rec-info {
+    text-align: center;
+    max-width: 600px;
+}
+
+.rec-summary {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.multi-modal-metrics {
+    margin-bottom: 4rem;
+}
+
+.multi-modal-metrics h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 1.8rem;
+    color: #1f2937;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+}
+
+.metric-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eef2f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.metric-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.box-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.box-header .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.box-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.box-header .weight {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.score-bar {
+    width: 100%;
+    height: 10px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.score-bar .fill {
+    height: 100%;
+    background: #6366f1;
+    border-radius: 10px;
+}
+
+.metric-box.audio .fill {
+    background: #6366f1;
+}
+
+.metric-box.video .fill {
+    background: #10b981;
+}
+
+.metric-box.content .fill {
+    background: #f59e0b;
+}
+
+.metric-box.red-flags .fill {
+    background: #ef4444;
+}
+
+.score-text {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.sub-metrics {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+}
+
+.sub-metrics li {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.detailed-parameters h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+}
+
+.param-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.param-section {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 16px;
+}
+
+.param-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #334155;
+    border-left: 4px solid #6366f1;
+    padding-left: 0.75rem;
+}
+
+.p-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.p-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.p-item strong {
+    color: #0f172a;
+}
+
+.formula-card.compact {
+    background: #0f172a;
+    color: #94a3b8;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.formula-card h4 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.formula-card code {
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+@media print {
+    .btn-home {
+        display: none;
+    }
+
+    .results-container {
+        box-shadow: none;
+        border: none;
+    }
+}
