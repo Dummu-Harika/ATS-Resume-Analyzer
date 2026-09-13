@@ -132,6 +132,7 @@ def generate_questions(
     if existing_questions:
         return [
             QuestionResponse(
+                id=q.id,
                 question_number=q.question_number,
                 question_text=q.question_text
             )

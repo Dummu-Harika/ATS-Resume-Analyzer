@@ -10,8 +10,31 @@ except ModuleNotFoundError:  # support running as a package
     from . import gemini_service
 
 import random
+import threading
 
 SESSION_STORE_PATH = os.environ.get('QUIZ_SESSION_STORE_PATH') or os.path.join(os.path.dirname(__file__), 'quiz_sessions.json')
+GENERATION_TIMEOUT_SECONDS = float(os.environ.get('QUIZ_GENERATION_TIMEOUT_SECONDS', '8'))
+
+
+def _generate_quiz_with_timeout(field: str, context: dict):
+    result = {}
+    failure = {}
+
+    def generate():
+        try:
+            result['value'] = gemini_service.generate_full_quiz(field, context)
+        except Exception as exc:
+            failure['error'] = exc
+
+    worker = threading.Thread(target=generate, daemon=True)
+    worker.start()
+    worker.join(GENERATION_TIMEOUT_SECONDS)
+    if worker.is_alive():
+        print(f"WARNING: Quiz generation exceeded {GENERATION_TIMEOUT_SECONDS:g}s; using the local fallback.")
+        return gemini_service.get_mock_full_quiz(field, context)
+    if 'error' in failure:
+        raise failure['error']
+    return result.get('value') or gemini_service.get_mock_full_quiz(field, context)
 
 
 def _ensure_session_store():
@@ -84,7 +107,11 @@ class QuizSession:
         max_retries = 3
         last_questions = []
         for attempt in range(max_retries):
-            full_quiz = gemini_service.generate_full_quiz(field, self.context)
+            try:
+                full_quiz = _generate_quiz_with_timeout(field, self.context)
+            except Exception as exc:
+                print(f"WARNING: Quiz generation failed: {exc}; using the local fallback.")
+                full_quiz = gemini_service.get_mock_full_quiz(field, self.context)
             questions = full_quiz.get("questions", [])
             if len(questions) >= 6 and len(set(q.get("question", "") for q in questions)) >= len(questions) * 0.8:
                 self.all_questions = questions
@@ -106,6 +133,13 @@ class QuizSession:
             'dsa','dsa',                    # 2 DSA algorithm questions
             'code_debugging','output_prediction'  # 2 code/debug output questions
         ]
+        if len(self.all_questions) >= desired_count:
+            # A complete AI or local fallback set already has enough questions.
+            # Reuse it instead of making extra network calls to rebalance types.
+            target_types = [
+                str(q.get('type', 'mcq')).lower()
+                for q in self.all_questions[:desired_count]
+            ]
 
         # Build lookup of existing questions by type
         existing_by_type = {}

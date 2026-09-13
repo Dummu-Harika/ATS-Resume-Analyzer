@@ -43,7 +43,7 @@ def start_session(request: StartSessionRequest):
     first_question = session.generate_next_question()
     return {
         "session_id": session.session_id,
-        "question": first_question
+        "question": manager.gemini_service.sanitize_public_question(first_question)
     }
 
 @app.post("/submit_answer")
@@ -59,12 +59,12 @@ def submit_answer(request: SubmitAnswerRequest):
         return {
             "evaluation": evaluation,
             "next_question": None,
-            "report": session.get_final_report()
+            "report": manager.gemini_service.sanitize_public_report(session.get_final_report())
         }
     
     return {
         "evaluation": evaluation,
-        "next_question": next_question
+        "next_question": manager.gemini_service.sanitize_public_question(next_question)
     }
 
 

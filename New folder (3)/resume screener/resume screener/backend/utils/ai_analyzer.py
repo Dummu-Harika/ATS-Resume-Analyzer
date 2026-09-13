@@ -21,7 +21,14 @@ def _resolve_model_id(candidate=None):
 
 class GeminiAnalyzer:
     def __init__(self, api_key):
-        self.client = genai.Client(api_key=api_key)
+        self.timeout_seconds = max(
+            5.0,
+            float(os.environ.get("RESUME_AI_TIMEOUT_SECONDS", "15"))
+        )
+        self.client = genai.Client(
+            api_key=api_key,
+            http_options=types.HttpOptions(timeout=int(self.timeout_seconds * 1000)),
+        )
         self.model_id = _resolve_model_id()
 
     async def analyze_resume_semantically(self, text, role, filename):

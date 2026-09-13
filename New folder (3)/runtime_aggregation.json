@@ -1,0 +1,14 @@
+{
+    "candidate_id":  "REF-1126",
+    "round1_score":  37.0,
+    "round2_score":  86.67,
+    "round3_score":  50.0,
+    "weights":  {
+                    "round1":  0.4,
+                    "round2":  0.3,
+                    "round3":  0.3
+                },
+    "final_score":  55.8,
+    "recommendation":  "Consider",
+    "status":  "completed"
+}

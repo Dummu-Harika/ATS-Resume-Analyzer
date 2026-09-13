@@ -70,7 +70,10 @@ async def verify_aggregator_secret(x_aggregator_secret: str = Header(None)):
 
 
 # Configure CORS from environment (comma-separated list), default to http://localhost:3000 for dev
-_allowed = os.environ.get('ALLOWED_ORIGINS', 'http://localhost:3000,http://localhost:3001,http://localhost:5173')
+_allowed = os.environ.get(
+    'ALLOWED_ORIGINS',
+    'http://localhost:3000,http://localhost:3001,http://localhost:5173,http://127.0.0.1:5173'
+)
 _allowed_list = [o.strip() for o in _allowed.split(',') if o.strip()]
 app.add_middleware(
     CORSMiddleware,
@@ -86,7 +89,7 @@ analyzer = DepthAnalyzer(ai_api_key=GEMINI_API_KEY)
 DATA_FILE = "backend/data/applications.json"
 
 # Interview API base (for aggregation)
-INTERVIEW_API = os.environ.get('INTERVIEW_API_URL', 'http://localhost:8002')
+INTERVIEW_API = os.environ.get("INTERVIEW_API_URL", "http://localhost:8004")
 
 # Aggregator module
 from backend.aggregator import aggregate_candidate

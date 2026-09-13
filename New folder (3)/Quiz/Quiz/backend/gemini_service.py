@@ -48,7 +48,14 @@ class UnverifiedClient(original_httpx_client):
         super().__init__(*args, **kwargs)
 httpx.Client = UnverifiedClient
 
-client = genai.Client(api_key=API_KEY) if API_KEY else None
+client = (
+    genai.Client(
+        api_key=API_KEY,
+        http_options=types.HttpOptions(timeout=20000),
+    )
+    if API_KEY
+    else None
+)
 
 def _resolve_model_id(candidate: Optional[str] = None) -> str:
     raw = (candidate or os.environ.get("GEMINI_MODEL_ID") or "gemini-3.6-flash").strip()
@@ -224,11 +231,36 @@ def _is_quota_or_rate_limit_error(exc: Exception) -> bool:
 
 def sanitize_public_question(question: dict) -> dict:
     public_question = dict(question)
+    public_question["question"] = re.sub(
+        r"\s*\(\s*(?:variant\s+\d+|Q\s*#\s*\d+|question\s*#?\s*\d+)\s*\)\s*",
+        " ",
+        str(public_question.get("question", "")),
+        flags=re.IGNORECASE,
+    )
+    public_question["question"] = re.sub(
+        r"\s*(?:Q\s*#\s*\d+|variant\s+\d+|question\s*#?\s*\d+)\s*",
+        " ",
+        public_question["question"],
+        flags=re.IGNORECASE,
+    ).strip()
     public_question.pop("correctAnswer", None)
     public_question.pop("explanation", None)
     public_question.pop("internal_prompt", None)
     public_question.pop("grading_hint", None)
     return public_question
+
+
+def sanitize_public_report(report: dict) -> dict:
+    safe_report = dict(report)
+    safe_report["results"] = []
+    for result in report.get("results", []):
+        safe_result = dict(result)
+        safe_question = sanitize_public_question({"question": safe_result.get("question", "")})
+        safe_result["question"] = safe_question["question"]
+        safe_result.pop("correctAnswer", None)
+        safe_result.pop("explanation", None)
+        safe_report["results"].append(safe_result)
+    return safe_report
 
 
 def generate_single_question(field: str, difficulty: str, excluded_questions: list, qtype: str = None):
@@ -418,12 +450,8 @@ def generate_full_quiz(field: str, context: dict = None):
         return {"questions": validated_questions}
     except Exception as e:
         print(f"CRITICAL: Gemini API Error (generate_full_quiz): {e}")
-        if _is_quota_or_rate_limit_error(e):
-            print("WARNING: Gemini quota exhausted. Falling back to the local mock quiz generator without crashing the flow.")
-            return get_mock_full_quiz(field, cleaned_context)
-        if MOCK_AI:
-            return get_mock_full_quiz(field, cleaned_context)
-        raise
+        print("WARNING: Gemini generation failed. Falling back to the existing local quiz generator so session creation can complete.")
+        return get_mock_full_quiz(field, cleaned_context)
 
 def evaluate_quiz_submission(questions: list, user_answers_list: list):
     prompt = f"""
@@ -584,6 +612,62 @@ def get_mock_full_quiz(field: str, context: dict = None):
             "correctAnswer": "3",
             "explanation": "Even numbers in range(0..4) are 0,2,4 — three items.",
         },
+        {
+            "type": "conceptual",
+            "difficulty": "easy",
+            "question": "For a {skill1}-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+            "options": ["To prevent information leakage into evaluation data", "To increase the number of columns", "To avoid writing unit tests", "To change the database schema"],
+            "correctAnswer": "To prevent information leakage into evaluation data",
+            "explanation": "Statistics learned from the validation or test split can leak future information into training.",
+        },
+        {
+            "type": "sql",
+            "difficulty": "medium",
+            "question": "In a sales table used for the {project} project, write a SQL query to return the top three regions by total revenue.",
+            "options": [],
+            "correctAnswer": "SELECT region, SUM(revenue) AS total_revenue FROM sales GROUP BY region ORDER BY total_revenue DESC LIMIT 3;",
+            "explanation": "Grouping, aggregation, descending sort, and limiting the result identify the top regions.",
+        },
+        {
+            "type": "code_debugging",
+            "difficulty": "medium",
+            "question": "A {skill1} model for {project} reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+            "options": ["Fit preprocessing only on training data, then transform validation and test data", "Delete the test set", "Increase the UI font size", "Shuffle labels after evaluation"],
+            "correctAnswer": "Fit preprocessing only on training data, then transform validation and test data",
+            "explanation": "Fitting preprocessing on all rows leaks evaluation-set information and inflates the score.",
+        },
+        {
+            "type": "scenario",
+            "difficulty": "hard",
+            "question": "For the {project} project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+            "options": ["Configure unknown categories to be ignored or mapped to a safe fallback", "Drop the entire production batch", "Fit the encoder on the production labels", "Replace the category with a random value"],
+            "correctAnswer": "Configure unknown categories to be ignored or mapped to a safe fallback",
+            "explanation": "Inference pipelines must handle categories that were absent from the training sample.",
+        },
+        {
+            "type": "scenario",
+            "difficulty": "medium",
+            "question": "Which checks are appropriate when validating {skill1} and {skill2} code used in {project}?",
+            "options": ["Input and null handling", "Boundary cases", "Measured output against an expected result", "Changing the requirements after a failure"],
+            "correctAnswer": ["Input and null handling", "Boundary cases", "Measured output against an expected result"],
+            "explanation": "Robust technical validation covers invalid inputs, boundaries, and observable correctness.",
+        },
+        {
+            "type": "code_snippet",
+            "difficulty": "hard",
+            "question": "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the {project} analysis.",
+            "options": [],
+            "correctAnswer": "df.groupby('region', as_index=False)['revenue'].sum()",
+            "explanation": "GroupBy aggregates revenue independently for each region.",
+        },
+        {
+            "type": "conceptual",
+            "difficulty": "easy",
+            "question": "When monitoring a {skill1} model from {project}, which signal most strongly suggests data drift?",
+            "options": ["The input feature distribution changes materially from the training distribution", "The source file has a new name", "The dashboard theme changes", "The model has a shorter class name"],
+            "correctAnswer": "The input feature distribution changes materially from the training distribution",
+            "explanation": "A distribution shift in model inputs is a direct indicator of data drift.",
+        },
     ]
 
     skill1 = skills[0] if skills else "Python"
@@ -610,32 +694,10 @@ def get_mock_full_quiz(field: str, context: dict = None):
         }
         question_list.append(q)
 
-    # Ensure the mock quiz returns exactly 15 questions for local/dev use.
-    # If templates are fewer than 15, duplicate and slightly vary them to reach 15.
-    idx_offset = len(question_list)
-    j = 0
-    while len(question_list) < 15:
-        base = templates[j % len(templates)]
-        q_text = base["question"].format(
-            field=field,
-            project=project_focus,
-            skill1=skill1,
-            skill2=skill2,
-        ) + f" (variant {len(question_list) + 1})"
-        q = {
-            "id": len(question_list) + 1,
-            "difficulty": base["difficulty"],
-            "type": base["type"],
-            "question": q_text,
-            "options": base.get("options", []),
-            "correctAnswer": base["correctAnswer"],
-            "explanation": base["explanation"],
-            "points": 5 if base["difficulty"] == "easy" else 10 if base["difficulty"] == "medium" else 15,
-            "internal_prompt": f"Role: {field}; candidate context: {json.dumps(context, ensure_ascii=False)[:200]}",
-            "grading_hint": "Use resume-aware technical reasoning and project-specific evidence.",
-        }
-        question_list.append(q)
-        j += 1
+    # Keep the fallback technical and personalized even when Gemini is unavailable.
+    # The templates above intentionally provide more than 15 distinct questions.
+    if len(question_list) < 15:
+        raise RuntimeError("The local technical question set must contain at least 15 questions")
 
     random.shuffle(question_list)
     return {"questions": question_list}
@@ -719,4 +781,3 @@ def get_mock_single_question(field, difficulty, qtype=None):
         base['question'] = f"(MOCK) Generic technical question for {field}"
         base['correctAnswer'] = "Answer"
     return base
-

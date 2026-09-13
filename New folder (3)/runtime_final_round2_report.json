@@ -1,0 +1,155 @@
+{
+    "evaluation":  {
+                       "status":  "accepted",
+                       "isCorrect":  true,
+                       "pointsAwarded":  10,
+                       "maxPoints":  10,
+                       "feedback":  "Correct."
+                   },
+    "next_question":  null,
+    "report":  {
+                   "totalScore":  130,
+                   "maxScore":  150,
+                   "percentage":  86.67,
+                   "results":  [
+                                   {
+                                       "questionId":  8,
+                                       "question":  "Predict the output of the following Python code:\n\nprint(len([i for i in range(5) if i%2==0]))",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "3",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  3,
+                                       "question":  "Given a dataset with skewed classes, which evaluation metric would you prioritize over raw accuracy for a DataScienceEngineer model used in business analytics system?",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "Precision-Recall tradeoff metrics such as F1 or AUC-PR",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  12,
+                                       "question":  "For the business analytics system project, production data contains a new category not seen during training. Which approach best prevents a one-hot encoded pipeline from failing?",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "Configure unknown categories to be ignored or mapped to a safe fallback",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  1,
+                                       "question":  "Which data quality issue is most important to validate before training a model for business analytics system?",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "Missing values and schema drift",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  9,
+                                       "question":  "For a Python-based data workflow, why should missing-value handling be fitted using the training split rather than the full dataset?",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "To prevent information leakage into evaluation data",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  4,
+                                       "question":  "A pipeline for business analytics system drops rows with missing values before splitting, which is a likely bug because it can cause ____.",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "Data leakage and biased evaluation",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  7,
+                                       "question":  "Describe an O(n log k) approach to find the k-th largest element in an unsorted array of size n.",
+                                       "isCorrect":  false,
+                                       "pointsAwarded":  0,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "Use a min-heap of size k (or a max-heap depending on language): push items and maintain size k; final root is k-th largest. Complexity O(n log k).",
+                                       "feedback":  "This question requires manual evaluation."
+                                   },
+                                   {
+                                       "questionId":  10,
+                                       "question":  "In a sales table used for the business analytics system project, write a SQL query to return the top three regions by total revenue.",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "SELECT region, SUM(revenue) AS total_revenue FROM sales GROUP BY region ORDER BY total_revenue DESC LIMIT 3;",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  15,
+                                       "question":  "When monitoring a Python model from business analytics system, which signal most strongly suggests data drift?",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "The input feature distribution changes materially from the training distribution",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  2,
+                                       "question":  "Write a SQL query to count rows where Python is not null and the value is greater than 0.",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "SELECT COUNT(*) FROM table_name WHERE column_name IS NOT NULL AND column_name \u003e 0;",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  14,
+                                       "question":  "Write a Python expression using Pandas to group a DataFrame by region and calculate total revenue for the business analytics system analysis.",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "df.groupby(\u0027region\u0027, as_index=False)[\u0027revenue\u0027].sum()",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  6,
+                                       "question":  "When a resume highlights Python and Pandas, which practice best validates that those skills were used on a real project?",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "Evaluating design tradeoffs and model metrics from the project",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  13,
+                                       "question":  "Which checks are appropriate when validating Python and Pandas code used in business analytics system?",
+                                       "isCorrect":  false,
+                                       "pointsAwarded":  0,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "Input and null handling Boundary cases Measured output against an expected result",
+                                       "feedback":  "Not fully correct. Review the technical concept and answer again."
+                                   },
+                                   {
+                                       "questionId":  11,
+                                       "question":  "A Python model for business analytics system reports excellent test accuracy, but preprocessing was applied before the train/test split. What should be corrected?",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "Fit preprocessing only on training data, then transform validation and test data",
+                                       "feedback":  "Correct."
+                                   },
+                                   {
+                                       "questionId":  5,
+                                       "question":  "Write a Python function to compute the factorial of a non-negative integer n (iterative implementation).",
+                                       "isCorrect":  true,
+                                       "pointsAwarded":  10,
+                                       "maxPoints":  10,
+                                       "userAnswer":  "def factorial(n):\n    result = 1\n    for i in range(2, n+1):\n        result *= i\n    return result",
+                                       "feedback":  "Correct."
+                                   }
+                               ],
+                   "overallFeedback":  "Technical assessment completed. The backend evaluated your responses and compared them against the role-specific answer key.",
+                   "isSelected":  true,
+                   "isFinished":  true
+               }
+}

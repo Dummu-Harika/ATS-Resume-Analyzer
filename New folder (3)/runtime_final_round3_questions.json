@@ -1,0 +1,27 @@
+[
+    {
+        "id":  211,
+        "question_number":  1,
+        "question_text":  "Can you describe a challenging project you worked on in DataScienceEngineer?"
+    },
+    {
+        "id":  212,
+        "question_number":  2,
+        "question_text":  "What are your strongest technical skills relevant to DataScienceEngineer?"
+    },
+    {
+        "id":  213,
+        "question_number":  3,
+        "question_text":  "How do you stay updated with the latest technologies in your field?"
+    },
+    {
+        "id":  214,
+        "question_number":  4,
+        "question_text":  "Describe a time when you had to debug a complex issue. How did you approach it?"
+    },
+    {
+        "id":  215,
+        "question_number":  5,
+        "question_text":  "What interests you most about this role and how does it align with your career goals?"
+    }
+]

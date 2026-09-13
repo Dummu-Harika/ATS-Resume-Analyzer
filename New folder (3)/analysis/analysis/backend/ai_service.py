@@ -5,6 +5,7 @@ Integrates with Google Gemini API for question generation and answer evaluation
 import os
 import json
 import re
+import threading
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -50,6 +51,27 @@ def _resolve_model_id(candidate: str | None = None) -> str:
 
 GEMINI_MODEL_ID = _resolve_model_id()
 model = genai.GenerativeModel(GEMINI_MODEL_ID) if genai is not None and GEMINI_API_KEY else None
+AI_TIMEOUT_SECONDS = float(os.getenv("INTERVIEW_AI_TIMEOUT_SECONDS", "8"))
+
+
+def _generate_content_with_timeout(prompt: str):
+    result = {}
+    failure = {}
+
+    def generate():
+        try:
+            result["response"] = model.generate_content(prompt)
+        except Exception as exc:
+            failure["error"] = exc
+
+    worker = threading.Thread(target=generate, daemon=True)
+    worker.start()
+    worker.join(AI_TIMEOUT_SECONDS)
+    if worker.is_alive():
+        raise TimeoutError(f"Interview AI generation exceeded {AI_TIMEOUT_SECONDS:g}s")
+    if "error" in failure:
+        raise failure["error"]
+    return result["response"]
 
 
 class AIService:
@@ -74,7 +96,7 @@ class AIService:
 
             prompt = get_question_generation_prompt(resume_skills, job_description, domain)
              
-            response = model.generate_content(prompt)
+            response = _generate_content_with_timeout(prompt)
             questions_text = response.text.strip()
             
             # Parse numbered questions
@@ -123,7 +145,7 @@ class AIService:
 
             prompt = get_answer_evaluation_prompt(question, answer_text, resume_summary)
              
-            response = model.generate_content(prompt)
+            response = _generate_content_with_timeout(prompt)
             result_text = response.text.strip()
             
             # Extract JSON from response (handle markdown code blocks)
@@ -188,7 +210,7 @@ class AIService:
 
             prompt = get_final_scoring_prompt(evaluations, domain)
              
-            response = model.generate_content(prompt)
+            response = _generate_content_with_timeout(prompt)
             result_text = response.text.strip()
             
             # Extract JSON from response

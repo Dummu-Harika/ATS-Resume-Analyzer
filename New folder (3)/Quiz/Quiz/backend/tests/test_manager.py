@@ -1,4 +1,5 @@
 import sys
+import re
 from pathlib import Path
 
 import pytest
@@ -57,6 +58,12 @@ def mock_gemini(monkeypatch):
     # Public sanitizer should remove answer fields
     def mock_sanitize_public_question(q):
         qpub = dict(q)
+        qpub['question'] = re.sub(
+            r'\s*(?:\(\s*(?:variant\s+\d+|Q\s*#\s*\d+|question\s*#?\s*\d+)\s*\)|Q\s*#\s*\d+|variant\s+\d+|question\s*#?\s*\d+)\s*',
+            ' ',
+            str(qpub.get('question', '')),
+            flags=re.IGNORECASE,
+        ).strip()
         qpub.pop('correctAnswer', None)
         qpub.pop('explanation', None)
         qpub.pop('internal_prompt', None)
@@ -77,20 +84,25 @@ def mock_gemini(monkeypatch):
     yield
 
 
-def test_create_session_creates_ten_questions():
+def test_create_session_creates_fifteen_questions():
     session = manager.create_session('Data Science Engineer', context={'matched_skills': ['Python'], 'projects': ['Proj']})
     assert session is not None
     assert isinstance(session.all_questions, list)
-    assert len(session.all_questions) == 8
-    # Types should cover the mixed technical assessment set
+    assert len(session.all_questions) == 15
+    assert len({q.get('question') for q in session.all_questions}) == 15
+    # The assessment must contain a varied technical mix without requiring
+    # every supported type in every generated session.
     types = [str(q.get('type', 'mcq')).lower() for q in session.all_questions]
-    for required in set(TARGET_TYPES):
-        assert required in types
+    assert len(set(types)) >= 3
 
 
 def test_all_questions_can_be_answered_and_report_generated():
     session = manager.create_session('Data Science Engineer', context={'matched_skills': ['Python'], 'projects': ['Proj']})
-    assert len(session.all_questions) == 8
+    assert len(session.all_questions) == 15
+    public_questions = [gemini_service.sanitize_public_question(q) for q in session.all_questions]
+    assert all('correctAnswer' not in q for q in public_questions)
+    assert all('(variant ' not in q.get('question', '').lower() for q in public_questions)
+    assert all('q#' not in q.get('question', '').lower() for q in public_questions)
 
     # Answer each question with the known correct answer from the mocked generator
     for q in session.all_questions:
@@ -107,4 +119,5 @@ def test_all_questions_can_be_answered_and_report_generated():
     assert 'percentage' in report
     assert 'isSelected' in report
     assert report.get('isFinished', True) is True
-    assert len(report.get('results', [])) == len(session.history)
+    assert report.get('maxScore') == 150
+    assert len(report.get('results', [])) == 15

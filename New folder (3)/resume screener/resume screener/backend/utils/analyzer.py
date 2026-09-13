@@ -1,6 +1,7 @@
 import re
 import math
 import asyncio
+import os
 from backend.config import JOB_ROLES
 
 class StructuralExtractor:
@@ -109,7 +110,7 @@ class DepthAnalyzer:
             try:
                 return await asyncio.wait_for(
                     self.ai_analyzer.analyze_resume_semantically(text, target_role, filename),
-                    timeout=15.0
+                    timeout=self.ai_analyzer.timeout_seconds
                 )
             except asyncio.TimeoutError:
                 print(f"DEBUG: AI Analysis timed out for '{filename}'")
