@@ -1,5 +1,0 @@
-Java Developer
-Skills: Java, Spring Boot, Hibernate, SQL.
-Experience: 5 years at Tech Corp.
-Education: Bachelor of Technology.
-Projects: E-commerce platform.

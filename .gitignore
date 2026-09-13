@@ -4,7 +4,13 @@ node_modules/
 !.env.example
 __pycache__/
 *.pyc
-node_modules/
-venv/
+*.pyo
+*.pyd
 .venv/
+.venv-full/
+venv/
 dist/
+build/
+test-results/
+*.webm
+*.tmp

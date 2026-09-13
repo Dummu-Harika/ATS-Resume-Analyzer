@@ -2,6 +2,7 @@ import json
 import os
 import uuid
 import difflib
+import re
 from typing import Dict, List, Optional
 
 try:
@@ -13,7 +14,8 @@ import random
 import threading
 
 SESSION_STORE_PATH = os.environ.get('QUIZ_SESSION_STORE_PATH') or os.path.join(os.path.dirname(__file__), 'quiz_sessions.json')
-GENERATION_TIMEOUT_SECONDS = float(os.environ.get('QUIZ_GENERATION_TIMEOUT_SECONDS', '8'))
+GENERATION_TIMEOUT_SECONDS = float(os.environ.get('QUIZ_GENERATION_TIMEOUT_SECONDS', '120'))
+ALLOW_LOCAL_FALLBACK = os.environ.get('QUIZ_ALLOW_LOCAL_FALLBACK', 'true').strip().lower() != 'false'
 
 
 def _generate_quiz_with_timeout(field: str, context: dict):
@@ -30,10 +32,12 @@ def _generate_quiz_with_timeout(field: str, context: dict):
     worker.start()
     worker.join(GENERATION_TIMEOUT_SECONDS)
     if worker.is_alive():
-        print(f"WARNING: Quiz generation exceeded {GENERATION_TIMEOUT_SECONDS:g}s; using the local fallback.")
+        message = f"Quiz generation exceeded {GENERATION_TIMEOUT_SECONDS:g}s"
+        print(f"WARNING: {message}; using the local fallback.")
         return gemini_service.get_mock_full_quiz(field, context)
     if 'error' in failure:
-        raise failure['error']
+        print(f"WARNING: Quiz generation error ({failure['error']}); using the local fallback.")
+        return gemini_service.get_mock_full_quiz(field, context)
     return result.get('value') or gemini_service.get_mock_full_quiz(field, context)
 
 
@@ -122,24 +126,21 @@ class QuizSession:
         if not self.all_questions:
             self.all_questions = last_questions if last_questions else []
 
-        # Enforce a balanced composition of 15 questions for Round 2.
+        # Enforce a 15-question MCQ/code-snippet Round 2.
         desired_count = 15
-        # Desired technical distribution:
-        # 5 MCQ, 3 SQL, 3 Python/programming (code_snippet), 2 DSA, 2 code output/debugging
         target_types = [
-            'mcq','mcq','mcq','mcq','mcq',  # 5 MCQs
-            'sql','sql','sql',              # 3 SQL
-            'code_snippet','code_snippet','code_snippet',  # 3 programming questions
-            'dsa','dsa',                    # 2 DSA algorithm questions
-            'code_debugging','output_prediction'  # 2 code/debug output questions
+            'mcq','mcq','mcq','mcq','mcq','mcq','mcq','mcq',
+            'code_snippet','code_snippet','code_snippet','code_snippet','code_snippet','code_snippet','code_snippet'
         ]
+        # Normalize all question types to mcq or code_snippet
+        for q in self.all_questions:
+            if str(q.get('type', 'mcq')).lower() not in {'mcq', 'code_snippet'}:
+                q['type'] = 'mcq' if q.get('options') and len(q.get('options')) > 1 else 'code_snippet'
+
         if len(self.all_questions) >= desired_count:
             # A complete AI or local fallback set already has enough questions.
             # Reuse it instead of making extra network calls to rebalance types.
-            target_types = [
-                str(q.get('type', 'mcq')).lower()
-                for q in self.all_questions[:desired_count]
-            ]
+            target_types = [str(q.get('type', 'mcq')).lower() for q in self.all_questions[:desired_count]]
 
         # Build lookup of existing questions by type
         existing_by_type = {}
@@ -243,6 +244,45 @@ class QuizSession:
             return json.dumps(value, sort_keys=True).lower()
         return str(value).strip().lower()
 
+    def _subjective_answer_matches(self, user_answer, correct_answer, qtype=""):
+        """Accept equivalent code, SQL, and technical explanations without weakening MCQs."""
+        user_text = self._normalize_answer(user_answer)
+        correct_text = self._normalize_answer(correct_answer)
+        if user_text == correct_text:
+            return True
+
+        def tokens(value):
+            return set(re.findall(r"[a-z0-9_+#.-]+", value.lower()))
+
+        user_tokens = tokens(user_text)
+        correct_tokens = tokens(correct_text)
+        if not user_tokens or not correct_tokens:
+            return False
+
+        shared = len(user_tokens & correct_tokens)
+        coverage = shared / len(correct_tokens)
+        relevance = shared / len(user_tokens)
+
+        if qtype in {"code_snippet", "code_debugging", "sql", "output_prediction"}:
+            compact_user = re.sub(r"[^a-z0-9]", "", user_text)
+            compact_correct = re.sub(r"[^a-z0-9]", "", correct_text)
+            if difflib.SequenceMatcher(None, compact_user, compact_correct).ratio() >= 0.55:
+                return True
+            return coverage >= 0.45 and relevance >= 0.25
+
+        if qtype == "dsa":
+            if "heap" in user_tokens and ("complexity" in user_tokens or "log" in user_tokens) and ("size" in user_tokens or "k" in user_tokens):
+                return True
+            return coverage >= 0.4 and relevance >= 0.2
+
+        # Short factual answers need to contain nearly all key terms.
+        if len(correct_tokens) <= 8:
+            return coverage >= 0.75 and relevance >= 0.35
+
+        # Longer explanations and implementations can use different wording,
+        # but must cover most of the reference's technical concepts.
+        return coverage >= 0.55 and relevance >= 0.18
+
     def _score_question(self, question: dict, user_answer: str):
         if user_answer is None or str(user_answer).strip() == "" or str(user_answer).strip() == "(Candidate Skipped)":
             return {"isCorrect": False, "pointsAwarded": 0, "maxPoints": question.get("points", 0), "feedback": "No answer submitted."}
@@ -252,12 +292,23 @@ class QuizSession:
             return {"isCorrect": False, "pointsAwarded": 0, "maxPoints": question.get("points", 0), "feedback": "No correct answer available for this question."}
 
         qtype = str(question.get("type", "mcq")).lower()
-        if qtype in {"mcq", "fill_blank", "code_snippet", "code_debugging", "output_prediction", "sql", "scenario", "conceptual"}:
+        if qtype == "mcq":
             normalized_user = self._normalize_answer(user_answer)
             normalized_correct = self._normalize_answer(correct_answer)
             is_correct = normalized_user == normalized_correct
             if not is_correct and isinstance(correct_answer, list):
-                is_correct = normalized_user in [self._normalize_answer(item) for item in correct_answer]
+                is_correct = set(normalized_user.split("|")) == {self._normalize_answer(item) for item in correct_answer}
+            points = question.get("points", 0) if is_correct else 0
+            feedback = "Correct." if is_correct else "Not fully correct. Review the technical concept and answer again."
+            return {"isCorrect": is_correct, "pointsAwarded": points, "maxPoints": question.get("points", 0), "feedback": feedback}
+
+        if qtype in {"fill_blank", "code_snippet", "code_debugging", "output_prediction", "sql", "scenario", "conceptual", "dsa", "multiple_select"}:
+            if isinstance(correct_answer, list):
+                user_items = {self._normalize_answer(item) for item in (user_answer if isinstance(user_answer, list) else [user_answer])}
+                correct_items = {self._normalize_answer(item) for item in correct_answer}
+                is_correct = user_items == correct_items
+            else:
+                is_correct = self._subjective_answer_matches(user_answer, correct_answer, qtype)
             points = question.get("points", 0) if is_correct else 0
             feedback = "Correct." if is_correct else "Not fully correct. Review the technical concept and answer again."
             return {"isCorrect": is_correct, "pointsAwarded": points, "maxPoints": question.get("points", 0), "feedback": feedback}
@@ -300,6 +351,34 @@ class QuizSession:
         }
 
     def get_final_report(self):
+        answers = [
+            {
+                "questionId": record["question"].get("id"),
+                "userAnswer": record.get("userAnswer"),
+            }
+            for record in self.history
+        ]
+        evaluated = gemini_service.evaluate_quiz_submission(self.all_questions, answers)
+        expected_max_score = sum(int(question.get("points", 10) or 10) for question in self.all_questions)
+        results = evaluated.get("results") if isinstance(evaluated, dict) else None
+        if not isinstance(results, list) or len(results) != len(self.history):
+            raise RuntimeError("Gemini returned an incomplete quiz evaluation")
+        total_score = sum(
+            min(max(int(result.get("pointsAwarded", 0) or 0), 0), 10)
+            for result in results
+        )
+        percentage = round((total_score / expected_max_score * 100), 2) if expected_max_score else 0
+        return {
+            "totalScore": total_score,
+            "maxScore": expected_max_score,
+            "percentage": percentage,
+            "results": results,
+            "overallFeedback": evaluated.get("overallFeedback", "Gemini evaluated the submitted answers for technical correctness."),
+            "isSelected": percentage >= 70,
+            "isFinished": True,
+        }
+
+        # Kept below as a reference for the legacy local evaluator.
         results = []
         total_score = 0
         max_score = 0

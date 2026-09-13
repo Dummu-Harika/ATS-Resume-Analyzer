@@ -1,3 +1,0 @@
-Alice Test
-Skills: Python, SQL, Pandas
-Project: Sales Dashboard

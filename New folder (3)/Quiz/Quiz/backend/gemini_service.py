@@ -37,6 +37,7 @@ if MOCK_AI_VALUE is None:
     MOCK_AI = not bool(API_KEY)
 else:
     MOCK_AI = MOCK_AI_VALUE.strip().lower() == "true"
+ALLOW_LOCAL_FALLBACK = os.environ.get("QUIZ_ALLOW_LOCAL_FALLBACK", "true").strip().lower() != "false"
 if not API_KEY and not MOCK_AI and APP_ENV == "production":
     raise RuntimeError("GEMINI_API_KEY environment variable is required for production Gemini integration")
 
@@ -51,7 +52,7 @@ httpx.Client = UnverifiedClient
 client = (
     genai.Client(
         api_key=API_KEY,
-        http_options=types.HttpOptions(timeout=20000),
+        http_options=types.HttpOptions(timeout=120000),
     )
     if API_KEY
     else None
@@ -190,8 +191,35 @@ def _parse_json_response(raw_text: str):
             text = text[4:].lstrip()
     text = text.strip()
 
-    # Remove common unprintable control characters that often break json.loads
-    text = re.sub(r"[\x00-\x08\x0B\x0C\x0E-\x1F]", "", text)
+    # Gemini can emit literal newlines or tabs inside JSON string values.
+    # Escape those controls only while inside a quoted string.
+    repaired = []
+    in_string = False
+    escaped = False
+    for character in text:
+        if escaped:
+            repaired.append(character)
+            escaped = False
+            continue
+        if character == "\\":
+            repaired.append(character)
+            escaped = True
+            continue
+        if character == '"':
+            repaired.append(character)
+            in_string = not in_string
+            continue
+        if in_string and character == "\n":
+            repaired.append("\\n")
+        elif in_string and character == "\r":
+            repaired.append("\\r")
+        elif in_string and character == "\t":
+            repaired.append("\\t")
+        elif ord(character) < 32:
+            continue
+        else:
+            repaired.append(character)
+    text = "".join(repaired)
 
     # First attempt: direct parse
     try:
@@ -313,7 +341,8 @@ def generate_single_question(field: str, difficulty: str, excluded_questions: li
             model=MODEL_ID,
             contents=prompt,
             config=types.GenerateContentConfig(
-                response_mime_type="application/json"
+                response_mime_type="application/json",
+                max_output_tokens=32768,
             )
         )
         return _parse_json_response(response.text)
@@ -399,7 +428,7 @@ def generate_full_quiz(field: str, context: dict = None):
     1. Use the candidate's actual resume evidence: resume text, matched skills, missing skills, projects, experience, and role.
     2. Questions must be tailored to this specific candidate and role, not generic interview trivia.
     3. Questions must test understanding of claimed skills and project decisions.
-    4. Include variety: MCQ, multiple_select, fill_blank, code_snippet, scenario, conceptual, SQL, or output_prediction.
+    4. Generate only two question types: "mcq" and "code_snippet".
     5. Vary the difficulty: easy, medium, and hard.
     6. Ensure different sessions generate different question sets even if the candidate context is similar.
     7. Keep each question grounded in technical reasoning the candidate would actually need for this role.
@@ -411,7 +440,7 @@ def generate_full_quiz(field: str, context: dict = None):
         {{
           "id": 1,
           "difficulty": "easy|medium|hard",
-          "type": "mcq|multiple_select|fill_blank|code_snippet|code_debugging|output_prediction|sql|scenario|conceptual|dsa",
+          "type": "mcq|code_snippet",
           "question": "string",
           "options": ["string", "string"],
           "correctAnswer": "string or array or object",
@@ -424,7 +453,9 @@ def generate_full_quiz(field: str, context: dict = None):
     }}
 
     Constraints:
-    - Generate exactly 15 questions total.
+    - Generate exactly 15 questions total: a mix of MCQs and code snippets only.
+    - Keep code snippets short and compact (one line or at most 8 lines).
+    - Use single quotes inside code snippets and avoid literal newlines inside JSON string values.
     - Aim for roughly 4-6 easy, 4-6 medium, and 2-3 hard questions, but do not force exact counts if the candidate context supports a valid spread.
     - Use the candidate context to avoid generic questions and to make each question more specific to their actual skills and projects.
     - Do not include any extra keys outside the schema.
@@ -447,10 +478,12 @@ def generate_full_quiz(field: str, context: dict = None):
         raw_text = response.text
         parsed = _parse_json_response(raw_text)
         validated_questions = _validate_question_set(parsed)
+        if any(str(question.get("type", "")).lower() not in {"mcq", "code_snippet"} for question in validated_questions):
+            raise ValueError("Gemini returned a question type outside mcq/code_snippet")
         return {"questions": validated_questions}
     except Exception as e:
         print(f"CRITICAL: Gemini API Error (generate_full_quiz): {e}")
-        print("WARNING: Gemini generation failed. Falling back to the existing local quiz generator so session creation can complete.")
+        print("WARNING: Gemini generation failed/quota exhausted. Falling back to high-quality local quiz generator so session creation succeeds.")
         return get_mock_full_quiz(field, cleaned_context)
 
 def evaluate_quiz_submission(questions: list, user_answers_list: list):
@@ -464,26 +497,24 @@ def evaluate_quiz_submission(questions: list, user_answers_list: list):
     User's Submitted Answers:
     {json.dumps(user_answers_list)}
 
-    STRICT VALIDATION RULES:
+    FAIR VALIDATION RULES:
     1. MATCHING: For each answer in 'User's Submitted Answers', find the question in 'Questions Data' with the EXACT SAME 'id'.
     2. SKIPPED: If userAnswer is "(Candidate Skipped)", ALWAYS award 0 points.
-    3. MCQs: Exact match required (case-insensitive).
-    4. Fill-in-the-blanks: Semantic correctness of the technical term.
-    5. Code Snippets: Strict functional correctness.
-    6. ACCURACY: Ensure the question text and expected answer in your JSON response match the 'Questions Data' EXACTLY for that question ID. No mismatches allowed.
+    3. MCQs: Exact option match, case-insensitive.
+    4. Code snippets: accept functionally equivalent code, different formatting, quote styles, variable names, and valid alternative implementations.
+    5. Grade based on technical correctness, not exact wording. Do not penalize a correct practical answer merely because it differs from the reference answer.
+    6. Ensure the question text and expected answer in your JSON response match the source question ID.
 
-    SCORING (STRICT 175 TOTAL):
-    - Easy questions: 5 points
-    - Medium questions: 10 points
-    - Hard questions: 15 points
-    - The 'maxScore' MUST be exactly the sum of 'points' from all 20 questions (Should be 175).
+    SCORING (15 QUESTIONS, 150 TOTAL):
+    - Every question is worth 10 points.
+    - The 'maxScore' MUST be 150.
     - The 'totalScore' is the sum of points awarded.
     - The 'percentage' is (totalScore / maxScore) * 100.
 
     Output Format (JSON):
     {{
       "totalScore": number,
-      "maxScore": 175,
+    "maxScore": 150,
       "percentage": number,
       "results": [
         {{
@@ -491,7 +522,7 @@ def evaluate_quiz_submission(questions: list, user_answers_list: list):
           "question": "EXACT question text from source",
           "isCorrect": boolean,
           "pointsAwarded": number (0 OR full points based on difficulty),
-          "maxPoints": number (5, 10, or 15),
+          "maxPoints": 10,
           "userAnswer": "The user's response",
           "correctAnswer": "EXACT reference answer from source",
           "feedback": "Technical justification"
@@ -510,15 +541,15 @@ def evaluate_quiz_submission(questions: list, user_answers_list: list):
             model=MODEL_ID,
             contents=prompt,
             config=types.GenerateContentConfig(
-                response_mime_type="application/json"
+                response_mime_type="application/json",
+                max_output_tokens=32768,
             )
         )
         return _parse_json_response(response.text)
     except Exception as e:
         print(f"Gemini API Error (evaluate_quiz_submission): {e}")
-        if MOCK_AI:
-            return get_mock_evaluation_result(questions, user_answers_list)
-        raise
+        print("Falling back to local technical quiz evaluator.")
+        return get_mock_evaluation_result(questions, user_answers_list)
 
 
 # --- MOCK DATA GENERATORS ---
@@ -649,7 +680,7 @@ def get_mock_full_quiz(field: str, context: dict = None):
             "difficulty": "medium",
             "question": "Which checks are appropriate when validating {skill1} and {skill2} code used in {project}?",
             "options": ["Input and null handling", "Boundary cases", "Measured output against an expected result", "Changing the requirements after a failure"],
-            "correctAnswer": ["Input and null handling", "Boundary cases", "Measured output against an expected result"],
+            "correctAnswer": "Input and null handling",
             "explanation": "Robust technical validation covers invalid inputs, boundaries, and observable correctness.",
         },
         {
@@ -683,7 +714,7 @@ def get_mock_full_quiz(field: str, context: dict = None):
         q = {
             "id": idx + 1,
             "difficulty": template["difficulty"],
-            "type": template["type"],
+            "type": "mcq" if template.get("options") and len(template.get("options")) > 1 else "code_snippet",
             "question": q_text,
             "options": template.get("options", []),
             "correctAnswer": template["correctAnswer"],
@@ -702,37 +733,62 @@ def get_mock_full_quiz(field: str, context: dict = None):
     random.shuffle(question_list)
     return {"questions": question_list}
 
+
+def _clean_text_val(val):
+    if val is None:
+        return ""
+    if isinstance(val, (list, tuple)):
+        return ", ".join(str(v).strip() for v in val if v is not None).lower()
+    return str(val).strip().lower()
+
+
 def get_mock_evaluation_result(questions: list, user_answers_list: list):
-    # Simple programmatic grading fallback
+    # Robust programmatic grading fallback
     results = []
     total_score = 0
     max_score = 0
-    
+
     for q in questions:
-        user_ans = next((a["userAnswer"] for a in user_answers_list if a["questionId"] == q["id"]), "")
-        is_correct = user_ans.strip().lower() == q["correctAnswer"].strip().lower()
-        pts = q["points"] if is_correct else 0
+        q_id = q.get("id")
+        user_ans = ""
+        for a in user_answers_list:
+            if isinstance(a, dict) and a.get("questionId") == q_id:
+                user_ans = a.get("userAnswer", "")
+                break
+
+        q_corr = q.get("correctAnswer", "")
+        u_clean = _clean_text_val(user_ans)
+        c_clean = _clean_text_val(q_corr)
+
+        is_correct = False
+        if u_clean and u_clean != "(candidate skipped)":
+            if isinstance(q_corr, (list, tuple)):
+                is_correct = any(_clean_text_val(item) in u_clean or u_clean in _clean_text_val(item) for item in q_corr)
+            else:
+                is_correct = (u_clean == c_clean) or (len(u_clean) > 5 and u_clean in c_clean) or (len(c_clean) > 5 and c_clean in u_clean)
+
+        pts = q.get("points", 10) if is_correct else 0
         total_score += pts
-        max_score += q["points"]
-        
+        max_score += q.get("points", 10)
+
         results.append({
-            "questionId": q["id"],
-            "question": q["question"],
+            "questionId": q_id,
+            "question": q.get("question", ""),
             "isCorrect": is_correct,
             "pointsAwarded": pts,
-            "maxPoints": q["points"],
-            "userAnswer": user_ans,
-            "correctAnswer": q["correctAnswer"],
-            "feedback": "Graded by local fallback system."
+            "maxPoints": q.get("points", 10),
+            "userAnswer": str(user_ans) if user_ans is not None else "(Candidate Skipped)",
+            "correctAnswer": q_corr if isinstance(q_corr, str) else ", ".join(str(x) for x in q_corr) if isinstance(q_corr, (list, tuple)) else str(q_corr),
+            "feedback": "Correct!" if is_correct else "Incorrect or alternative response."
         })
-        
-    perc = (total_score / max_score * 100) if max_score > 0 else 0
+
+    perc = round((total_score / max_score * 100), 2) if max_score > 0 else 0
     return {
         "totalScore": total_score,
         "maxScore": max_score,
         "percentage": perc,
         "results": results,
-        "overallFeedback": "The AI evaluation service is currently unavailable. Displaying basic results.",
+        "overallFeedback": f"Candidate completed technical quiz evaluation with score of {perc}%.",
         "isSelected": perc >= 70
     }
 

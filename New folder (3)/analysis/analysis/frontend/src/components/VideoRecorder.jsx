@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './VideoRecorder.css';
 
-const VideoRecorder = ({ onRecordingComplete, onStreamStart, onStart, onStop }) => {
+const VideoRecorder = ({ onRecordingComplete, onStreamStart, onStart, onStop, autoStart = false }) => {
     const [isRecording, setIsRecording] = useState(false);
     const [stream, setStream] = useState(null);
     const [recordedChunks, setRecordedChunks] = useState([]);
@@ -15,7 +15,14 @@ const VideoRecorder = ({ onRecordingComplete, onStreamStart, onStart, onStop }) 
 
     // Initialize camera stream
     useEffect(() => {
-        startCamera();
+        let cancelled = false;
+        const initialize = async () => {
+            const mediaStream = await startCamera();
+            if (!cancelled && autoStart && mediaStream) {
+                startRecordingWithStream(mediaStream);
+            }
+        };
+        initialize();
         return () => stopCamera();
     }, []);
 
@@ -30,9 +37,11 @@ const VideoRecorder = ({ onRecordingComplete, onStreamStart, onStart, onStop }) 
                 videoRef.current.srcObject = mediaStream;
             }
             if (onStreamStart) onStreamStart(mediaStream);
+            return mediaStream;
         } catch (err) {
             console.error('Error accessing camera:', err);
             setError('Could not access camera/microphone. Please check permissions.');
+            return null;
         }
     };
 
@@ -44,11 +53,11 @@ const VideoRecorder = ({ onRecordingComplete, onStreamStart, onStart, onStop }) 
 
     const recordedChunksRef = useRef([]);
 
-    const startRecording = () => {
-        if (!stream) return;
+    const startRecordingWithStream = (recordingStream) => {
+        if (!recordingStream) return;
 
         recordedChunksRef.current = [];
-        const mediaRecorder = new MediaRecorder(stream, {
+        const mediaRecorder = new MediaRecorder(recordingStream, {
             mimeType: 'video/webm;codecs=vp8,opus'
         });
 
@@ -82,6 +91,8 @@ const VideoRecorder = ({ onRecordingComplete, onStreamStart, onStart, onStop }) 
             });
         }, 1000);
     };
+
+    const startRecording = () => startRecordingWithStream(stream);
 
     const stopRecording = () => {
         if (mediaRecorderRef.current && isRecording) {

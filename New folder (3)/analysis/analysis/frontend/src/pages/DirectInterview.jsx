@@ -13,6 +13,54 @@ const HR_QUESTIONS = [
     "Describe a situation where you had to adapt to a major change at work.",
     "Where do you see yourself in 3-5 years, and how does this role fit into your career goals?"
 ];
+const INTERVIEW_API_URL = import.meta.env.VITE_INTERVIEW_API_URL || 'http://localhost:8004';
+
+const normalizeEvaluation = (result, question, transcript) => {
+    const textConfidence = Number(result.confidence?.score ?? 0);
+    const textEvidence = Number(result.evidence?.score ?? 0);
+    const textClarity = Number(result.clarity?.score ?? 0);
+    const textProfessionalism = Math.max(0, 10 - Number(result.arrogance?.score ?? 0));
+    const audio = result.audio || {};
+    const video = result.video || {};
+    const content = result.content || {};
+    const presence = video.professional_presence || {};
+    const confidence = audio.vocal_confidence || {};
+    const fluency = audio.speech_fluency || {};
+    const contentScore = Number(
+        content.score ?? result.overall_score ?? ((textEvidence + textClarity + textProfessionalism) / 3)
+    );
+    return {
+        ...result,
+        question,
+        transcript: transcript || result.transcript || '',
+        audio: {
+            ...audio,
+            vocal_confidence: confidence,
+            speech_fluency: fluency,
+            emotional_tone: audio.emotional_tone || { score: textConfidence || fluency.score || 0 },
+            voice_clarity: audio.voice_clarity || { score: textClarity || fluency.score || 0 },
+            tone_consistency: audio.tone_consistency || { score: textConfidence || fluency.score || 0 },
+        },
+        video: {
+            ...video,
+            eye_contact: video.eye_contact || { score: presence.score ?? 0 },
+            body_language: video.body_language || { score: presence.score ?? 0 },
+            facial_expressions: video.facial_expressions || { score: presence.score ?? 0 },
+            professional_appearance: video.professional_appearance || { score: presence.score ?? 0 },
+            engagement_level: video.engagement_level || { score: presence.score ?? textConfidence },
+        },
+        content: {
+            ...content,
+            score: contentScore,
+            communication_skills: content.communication_skills || { score: textClarity || 0 },
+            cultural_fit: content.cultural_fit || { score: textProfessionalism || 0 },
+            motivation: content.motivation || { score: textEvidence || 0 },
+            problem_solving: content.problem_solving || { score: textEvidence || 0 },
+            professional_maturity: content.professional_maturity || { score: textProfessionalism || 0 },
+        },
+        red_flags: result.red_flags || { behavioral: { score: 1 }, visual: { score: 1 } },
+    };
+};
 
 const DirectInterview = () => {
     const navigate = useNavigate();
@@ -21,6 +69,8 @@ const DirectInterview = () => {
     const [currentTranscript, setCurrentTranscript] = useState('');
     const [allEvaluations, setAllEvaluations] = useState([]);
     const [isAnalyzing, setIsAnalyzing] = useState(false);
+    const transcriptRef = useRef('');
+    const questionIndexRef = useRef(0);
 
     const currentQuestion = HR_QUESTIONS[currentQuestionIndex];
     const progress = ((currentQuestionIndex + 1) / HR_QUESTIONS.length) * 100;
@@ -28,28 +78,37 @@ const DirectInterview = () => {
 
     const handleStartRecording = () => {
         setCurrentTranscript('');
+        transcriptRef.current = '';
         speechService.startListening(
-            (transcript) => setCurrentTranscript(transcript),
+            (transcript) => {
+                transcriptRef.current = transcript;
+                setCurrentTranscript(transcript);
+            },
             (error) => console.error('Speech error:', error)
         );
     };
 
     const handleStopRecording = () => {
         const finalTranscript = speechService.stopListening();
-        setCurrentTranscript(finalTranscript || currentTranscript);
+        const transcript = finalTranscript || transcriptRef.current;
+        transcriptRef.current = transcript;
+        setCurrentTranscript(transcript);
     };
 
     const handleRecordingComplete = async (blob, duration) => {
+        const answerTranscript = transcriptRef.current.trim();
+        const questionIndex = questionIndexRef.current;
+        const questionText = HR_QUESTIONS[questionIndex];
         console.log('Video recording complete:', duration, 'seconds');
         setIsAnalyzing(true);
 
         try {
             const formData = new FormData();
             formData.append('video', blob, `interview_q${currentQuestionIndex}.webm`);
-            formData.append('question', currentQuestion);
+            formData.append('question', questionText);
             formData.append('job_role', 'Software Developer');
 
-            const response = await fetch('http://localhost:8000/api/interview/analyze-video', {
+            const response = await fetch(`${INTERVIEW_API_URL}/api/interview/analyze-video`, {
                 method: 'POST',
                 body: formData
             });
@@ -60,25 +119,23 @@ const DirectInterview = () => {
             console.log('Real Analysis Result:', result);
 
             // Add question info for display
-            const evaluation = {
-                ...result,
-                question: currentQuestion
-            };
+            const evaluation = normalizeEvaluation(result, questionText, answerTranscript);
 
-            setAllEvaluations(prev => [...prev, evaluation]);
-            if (result.transcript) {
-                setCurrentTranscript(result.transcript);
-            }
+            setAllEvaluations(prev => {
+                const next = [...prev];
+                next[questionIndex] = evaluation;
+                return next;
+            });
         } catch (err) {
             console.error('Error uploading video:', err);
-            alert('Could not analyze video. Falling back to local/voice analysis.');
-            // Fallback would go here
+            setCurrentTranscript(answerTranscript || 'Video response recorded.');
+            alert('Video analysis failed. You can still submit the transcript for AI evaluation.');
         } finally {
             setIsAnalyzing(false);
         }
     };
 
-    const handleNextQuestion = () => {
+    const handleNextQuestion = async () => {
         if (!currentTranscript.trim()) {
             alert('Please record or type your answer before continuing.');
             return;
@@ -89,30 +146,65 @@ const DirectInterview = () => {
             return;
         }
 
-        // Save current answer text
-        setAllAnswers([...allAnswers, currentTranscript]);
+        const answerTranscript = transcriptRef.current.trim() || currentTranscript.trim();
+        const nextAnswers = [...allAnswers];
+        nextAnswers[currentQuestionIndex] = answerTranscript;
+        setAllAnswers(nextAnswers);
+
+        if (!allEvaluations[currentQuestionIndex]) {
+            try {
+                setIsAnalyzing(true);
+                const response = await fetch(`${INTERVIEW_API_URL}/api/evaluate-answer`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question: currentQuestion, answer: answerTranscript, question_number: currentQuestionIndex + 1 })
+                });
+                if (!response.ok) throw new Error('Text answer evaluation failed');
+                const result = await response.json();
+                const evaluation = normalizeEvaluation(result, currentQuestion, answerTranscript);
+                const nextEvaluations = [...allEvaluations];
+                nextEvaluations[currentQuestionIndex] = evaluation;
+                setAllEvaluations(nextEvaluations);
+                if (isLastQuestion) {
+                    analyzeAllAnswers(nextEvaluations, nextAnswers);
+                    return;
+                }
+            } catch (err) {
+                setError(`Answer evaluation failed: ${err.message}`);
+                return;
+            } finally {
+                setIsAnalyzing(false);
+            }
+        }
 
         if (isLastQuestion) {
-            analyzeAllAnswers(allEvaluations);
+            speechService.stopListeningClean();
+            analyzeAllAnswers(allEvaluations, nextAnswers);
         } else {
+            speechService.stopListeningClean();
             setCurrentTranscript('');
+            transcriptRef.current = '';
+            questionIndexRef.current = currentQuestionIndex + 1;
             setCurrentQuestionIndex(prev => prev + 1);
         }
     };
 
-    const analyzeAllAnswers = (evaluations) => {
+    const analyzeAllAnswers = (evaluations, answers = allAnswers) => {
         console.log('Orchestrating final results with evaluations:', evaluations);
 
         // Calculate category averages from the real multi-modal data
         const avgAudio = calculateCategoryAvg(evaluations, 'audio');
         const avgVideo = calculateCategoryAvg(evaluations, 'video');
-        const avgContent = evaluations.reduce((sum, e) => sum + e.content.score, 0) / evaluations.length;
+        const completedEvaluations = evaluations.filter(Boolean);
+        const avgContent = completedEvaluations.length
+            ? completedEvaluations.reduce((sum, e) => sum + Number(e.content?.score || 0), 0) / completedEvaluations.length
+            : 0;
 
         // Red Flag Penalty: Behavioral + Visual avg
-        const avgRedFlags = evaluations.reduce((sum, e) => {
+        const avgRedFlags = completedEvaluations.reduce((sum, e) => {
             const flags = e.red_flags || { behavioral: { score: 1 }, visual: { score: 1 } };
             return sum + (flags.behavioral.score + flags.visual.score) / 2;
-        }, 0) / evaluations.length;
+        }, 0) / (completedEvaluations.length || 1);
 
         // Overall Score = (Audio × 3.0) + (Video × 2.5) + (Content × 3.5) - Red Flags
         const overallScore = (avgAudio * 3.0) + (avgVideo * 2.5) + (avgContent * 3.5) - (avgRedFlags * 1.0);
@@ -130,7 +222,7 @@ const DirectInterview = () => {
                 avgRedFlags,
                 overallScore: Math.max(0, Math.min(100, Math.round(overallScore))),
                 recommendation,
-                answers: allAnswers
+                answers
             }
         });
     };
@@ -174,14 +266,17 @@ const DirectInterview = () => {
     const calculateCategoryAvg = (evals, category) => {
         let total = 0;
         let count = 0;
-        evals.forEach(e => {
+        evals.filter(Boolean).forEach(e => {
             const cat = e[category];
-            Object.keys(cat).forEach(key => {
-                total += cat[key].score;
-                count++;
+            if (!cat) return;
+            Object.values(cat).forEach(value => {
+                if (value && typeof value.score === 'number') {
+                    total += value.score;
+                    count++;
+                }
             });
         });
-        return total / count;
+        return count ? total / count : 0;
     };
 
     return (
@@ -213,6 +308,7 @@ const DirectInterview = () => {
                 </div>
 
                 <VideoRecorder
+                    key={`video-q-${currentQuestionIndex}`}
                     onStart={handleStartRecording}
                     onStop={handleStopRecording}
                     onRecordingComplete={handleRecordingComplete}
@@ -230,7 +326,10 @@ const DirectInterview = () => {
                     <textarea
                         className="manual-textarea"
                         value={currentTranscript}
-                        onChange={(e) => setCurrentTranscript(e.target.value)}
+                        onChange={(e) => {
+                            transcriptRef.current = e.target.value;
+                            setCurrentTranscript(e.target.value);
+                        }}
                         placeholder="Type your answer here if you prefer not to use video..."
                         rows="4"
                     />

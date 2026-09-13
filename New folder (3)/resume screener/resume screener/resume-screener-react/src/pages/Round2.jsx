@@ -72,6 +72,8 @@ export default function Round2() {
                 if (q) {
                     setQuestion(q);
                     setQuestions([q]);
+                } else if (data.report) {
+                    setFinishedReport(data.report);
                 } else {
                     setError('No initial question found for this session.');
                 }
@@ -197,96 +199,178 @@ export default function Round2() {
     };
 
     if (!sessionId) {
-        return <div style={{ padding: '2rem' }}><Card><p>No Round 2 session specified.</p></Card></div>;
+        return (
+            <div style={{ maxWidth: '640px', margin: '2rem auto', padding: '1rem' }}>
+                <Card className="card-glow-accent fade-in" style={{ textAlign: 'center', padding: '2.5rem 1.5rem' }}>
+                    <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: 'rgba(99, 102, 241, 0.15)', color: '#818cf8', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
+                        <Terminal size={28} />
+                    </div>
+                    <h2 style={{ marginBottom: '8px' }}>Round 2 Technical Evaluation</h2>
+                    <p style={{ color: '#94a3b8', maxWidth: '440px', margin: '0 auto 1.5rem', fontSize: '0.92rem' }}>
+                        To participate in the Round 2 Technical Assessment, please complete the Round 1 Resume Screening first.
+                    </p>
+                    <Button variant="primary" onClick={() => navigate('/')}>
+                        ← Go to Candidate Portal
+                    </Button>
+                </Card>
+            </div>
+        );
     }
 
     const minutes = String(Math.floor(timerSeconds / 60)).padStart(2, '0');
     const seconds = String(timerSeconds % 60).padStart(2, '0');
 
     return (
-        <div className="max-w-3xl mx-auto" style={{ padding: '2rem' }}>
-            <Card>
-                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '1rem' }}>
+        <div className="fade-in" style={{ maxWidth: '880px', margin: '0 auto', paddingBottom: '3rem' }}>
+            <Card className="card-glow-accent">
+                {/* Header */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
                     <div>
-                        <div style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#94a3b8' }}>Round 2</div>
-                        <h2 style={{ margin: '0.25rem 0 0' }}>Technical Assessment</h2>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                            <span className="badge-pill badge-active">Round 2: Technical</span>
+                            <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Session: #{sessionId.slice(0, 8)}</span>
+                        </div>
+                        <h2 style={{ margin: 0, fontSize: '1.65rem' }}>Technical Proficiency Assessment</h2>
                     </div>
-                    <div style={{ background: '#0f172a', border: '1px solid #334155', borderRadius: '10px', padding: '0.6rem 0.9rem', minWidth: '120px', textAlign: 'center' }}>
-                        <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase' }}>Time left</div>
-                        <strong style={{ fontSize: '1.1rem' }}>{minutes}:{seconds}</strong>
+
+                    <div style={{ background: 'rgba(15, 23, 42, 0.9)', border: '1px solid rgba(255, 255, 255, 0.1)', borderRadius: '12px', padding: '0.5rem 1rem', minWidth: '130px', textAlign: 'center' }}>
+                        <div style={{ fontSize: '0.72rem', color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Time Remaining</div>
+                        <strong style={{ fontSize: '1.2rem', color: timerSeconds < 300 ? '#f87171' : '#38bdf8', fontFamily: 'monospace' }}>
+                            {minutes}:{seconds}
+                        </strong>
                     </div>
                 </div>
 
                 {!finishedReport && question && (
                     <>
-                        <div style={{ marginBottom: '1rem' }}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', color: '#cbd5e1', fontSize: '0.9rem' }}>
-                                <span>Progress</span>
-                                <span>{questionIndex + 1} / {Math.max(questions.length, 1)}</span>
+                        {/* Progress Bar */}
+                        <div style={{ marginBottom: '1.5rem' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px', color: '#94a3b8', fontSize: '0.85rem' }}>
+                                <span>Question {questionIndex + 1} of 15</span>
+                                <span>{Math.round(Math.min(100, ((questionIndex + 1) / 15) * 100))}% Completed</span>
                             </div>
-                            <div style={{ height: '10px', background: '#0f172a', borderRadius: '999px', overflow: 'hidden' }}>
-                                <div style={{ width: `${Math.max(8, progress)}%`, height: '100%', background: 'linear-gradient(90deg, #22c55e, #38bdf8)', borderRadius: '999px' }} />
+                            <div style={{ height: '8px', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '999px', overflow: 'hidden' }}>
+                                <div style={{ width: `${Math.max(6, ((questionIndex + 1) / 15) * 100)}%`, height: '100%', background: 'linear-gradient(90deg, #6366f1, #38bdf8)', borderRadius: '999px', transition: 'width 0.3s ease' }} />
                             </div>
                         </div>
 
-                        <div style={{ marginBottom: '1rem', padding: '1rem 1.1rem', borderRadius: '12px', background: 'rgba(15, 23, 42, 0.9)', border: '1px solid #1e293b' }}>
-                            <div style={{ color: '#94a3b8', fontSize: '0.8rem', marginBottom: '0.5rem' }}>Question {questionIndex + 1}</div>
-                            <h3 style={{ margin: 0, lineHeight: 1.5 }}>{question.question}{question.id ? ` (Q#${question.id})` : ''}</h3>
+                        {/* Question Box */}
+                        <div style={{ marginBottom: '1.25rem', padding: '1.25rem 1.4rem', borderRadius: '14px', background: 'rgba(11, 17, 33, 0.85)', border: '1px solid rgba(99, 102, 241, 0.2)' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                                <span style={{ color: '#818cf8', fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+                                    {question.type ? question.type.replace('_', ' ').toUpperCase() : 'TECHNICAL QUESTION'}
+                                </span>
+                                <span style={{ fontSize: '0.75rem', color: '#64748b' }}>10 Points</span>
+                            </div>
+                            <h3 style={{ margin: 0, lineHeight: 1.5, fontSize: '1.15rem', color: '#f8fafc' }}>
+                                {question.question}
+                            </h3>
                         </div>
 
+                        {/* MCQ Options */}
                         {question.type === 'mcq' && question.options && question.options.length > 0 && (
                             <div style={{ display: 'grid', gap: '0.75rem' }}>
                                 {question.options.map((opt, idx) => (
-                                    <label key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.9rem 1rem', borderRadius: '10px', border: '1px solid #334155', background: selected === opt ? 'rgba(59,130,246,0.14)' : '#0f172a', cursor: 'pointer' }}>
-                                        <input type="radio" name="opt" value={opt} checked={selected === opt} onChange={() => setSelected(opt)} />
-                                        <span>{opt}</span>
+                                    <label
+                                        key={idx}
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '0.85rem',
+                                            padding: '1rem 1.15rem',
+                                            borderRadius: '12px',
+                                            border: selected === opt ? '1.5px solid #6366f1' : '1px solid rgba(255, 255, 255, 0.08)',
+                                            background: selected === opt ? 'rgba(99, 102, 241, 0.16)' : 'rgba(15, 23, 42, 0.6)',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.2s ease'
+                                        }}
+                                    >
+                                        <input
+                                            type="radio"
+                                            name="opt"
+                                            value={opt}
+                                            checked={selected === opt}
+                                            onChange={() => setSelected(opt)}
+                                            style={{ accentColor: '#6366f1' }}
+                                        />
+                                        <span style={{ fontSize: '0.92rem', color: selected === opt ? '#ffffff' : '#cbd5e1' }}>{opt}</span>
                                     </label>
                                 ))}
                             </div>
                         )}
 
+                        {/* Open ended text response */}
                         {question.type !== 'mcq' && (
                             <div>
-                                <textarea value={selected} onChange={(e) => setSelected(e.target.value)} rows={7} style={{ width: '100%', background: '#0f172a', color: '#e2e8f0', border: '1px solid #334155', borderRadius: '10px', padding: '0.9rem' }} placeholder="Type your answer here..." />
+                                <textarea
+                                    value={selected}
+                                    onChange={(e) => setSelected(e.target.value)}
+                                    rows={7}
+                                    style={{ width: '100%', background: 'rgba(11, 17, 33, 0.9)', color: '#f8fafc', border: '1px solid rgba(99, 102, 241, 0.25)', borderRadius: '12px', padding: '1rem', fontFamily: 'monospace', fontSize: '0.92rem', lineHeight: 1.6 }}
+                                    placeholder="Type your technical solution or code implementation here..."
+                                />
                             </div>
                         )}
 
                         {error && (
-                            <div style={{ marginTop: '1rem', color: '#fca5a5', background: 'rgba(127, 29, 29, 0.35)', padding: '0.8rem 1rem', borderRadius: '10px' }}>{error}</div>
+                            <div style={{ marginTop: '1rem', color: '#fca5a5', background: 'rgba(239, 68, 68, 0.15)', border: '1px solid rgba(239, 68, 68, 0.3)', padding: '0.8rem 1rem', borderRadius: '10px', fontSize: '0.88rem' }}>
+                                {error}
+                            </div>
                         )}
 
-                        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', gap: '1rem', marginTop: '1.75rem', flexWrap: 'wrap' }}>
                             <div style={{ display: 'flex', gap: '0.75rem' }}>
-                                <Button variant="outline" onClick={() => setSelected('')} disabled={loading}>Clear Answer</Button>
-                                <Button variant="outline" onClick={() => handleSkip()} disabled={loading}>Skip Question</Button>
+                                <Button variant="outline" className="btn-sm" onClick={() => setSelected('')} disabled={loading}>
+                                    Clear
+                                </Button>
+                                <Button variant="outline" className="btn-sm" onClick={() => handleSkip()} disabled={loading}>
+                                    Skip Question
+                                </Button>
                             </div>
-                            <Button onClick={handleSubmit} disabled={loading}>
-                                {loading ? 'Submitting...' : 'Submit Answer'}
+                            <Button variant="primary" onClick={handleSubmit} disabled={loading} style={{ minWidth: '150px' }}>
+                                {loading ? 'Submitting...' : 'Submit & Next →'}
                             </Button>
                         </div>
                     </>
                 )}
 
-                {!finishedReport && error && (
-                    <div style={{ marginTop: '1rem', color: '#fca5a5', background: 'rgba(127, 29, 29, 0.35)', padding: '0.8rem 1rem', borderRadius: '10px' }}>{error}</div>
-                )}
-
                 {!finishedReport && !question && !error && (
-                    <div style={{ color: '#e2e8f0' }}>Loading question...</div>
+                    <div style={{ color: '#cbd5e1', textAlign: 'center', padding: '2rem' }}>
+                        Loading next technical challenge...
+                    </div>
                 )}
 
+                {/* FINISHED REPORT */}
                 {finishedReport && (
-                    <div>
-                        <h3>Assessment Complete</h3>
-                        <p>Score: {finishedReport.percentage ?? finishedReport.totalScore}</p>
-                        <p>Status: {finishedReport.isSelected ? 'Qualified' : 'Not Qualified'}</p>
-                        <div style={{ whiteSpace: 'pre-wrap', background: '#0b1220', padding: '1rem', borderRadius: '8px', color: '#cbd5e1', marginTop: '1rem' }}>
-                            {finishedReport.overallFeedback || finishedReport.summary || 'No feedback available.'}
+                    <div className="fade-in" style={{ textAlign: 'center', padding: '1.5rem 0' }}>
+                        <div className="score-circle" style={{
+                            '--percentage': `${finishedReport.percentage ?? finishedReport.totalScore}%`,
+                            color: finishedReport.isSelected ? '#10b981' : '#ef4444',
+                            width: '100px',
+                            height: '100px',
+                            fontSize: '2rem'
+                        }}>
+                            <span className="score-value">{Math.round(finishedReport.percentage ?? finishedReport.totalScore)}%</span>
+                        </div>
+
+                        <h2 style={{ fontSize: '1.75rem', marginBottom: '6px' }}>
+                            {finishedReport.isSelected ? '🎉 Qualified for Round 3!' : 'Technical Assessment Completed'}
+                        </h2>
+
+                        <div style={{ display: 'inline-block', marginBottom: '1.5rem' }}>
+                            <span className={`badge-pill ${finishedReport.isSelected ? 'badge-passed' : 'badge-failed'}`} style={{ fontSize: '0.85rem', padding: '6px 16px' }}>
+                                Status: {finishedReport.isSelected ? 'QUALIFIED (>= 70%)' : 'NOT QUALIFIED (< 70%)'}
+                            </span>
+                        </div>
+
+                        <div style={{ textAlign: 'left', background: 'rgba(15, 23, 42, 0.85)', padding: '1.25rem', borderRadius: '12px', color: '#cbd5e1', border: '1px solid rgba(255, 255, 255, 0.08)', marginBottom: '1.5rem', lineHeight: 1.6, fontSize: '0.92rem' }}>
+                            {finishedReport.overallFeedback || finishedReport.summary || 'Assessment evaluation complete. Candidate demonstrated competency across standard engineering questions.'}
                         </div>
 
                         {finishedReport.isSelected && (
                             <div style={{ marginTop: '1.5rem' }}>
                                 <Button
+                                    variant="primary"
                                     onClick={() => {
                                         const candidateId = sessionStorage.getItem('current_candidate_id') || sessionStorage.getItem('round2_candidate_id');
                                         if (candidateId) {
@@ -297,9 +381,9 @@ export default function Round2() {
                                             navigate('/round3');
                                         }
                                     }}
-                                    style={{ width: '100%', padding: '1rem', fontSize: '1.1rem' }}
+                                    style={{ width: '100%', padding: '1rem', fontSize: '1.1rem', background: 'linear-gradient(135deg, #10b981, #059669)' }}
                                 >
-                                    Proceed to Round 3
+                                    🚀 Proceed to Round 3: AI Voice & Video Interview →
                                 </Button>
                             </div>
                         )}

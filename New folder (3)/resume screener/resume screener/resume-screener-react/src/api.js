@@ -107,3 +107,38 @@ export const deleteCandidate = async (id) => {
     }
     return response.json();
 };
+
+export const recruiterLogin = async (credentials) => {
+    const response = await fetch(`${API_URL}/recruiter/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(credentials)
+    });
+    if (!response.ok) {
+        throw await parseErrorResponse(response);
+    }
+    return response.json();
+};
+
+export const submitRound3Result = async (payload) => {
+    const response = await fetch(`${API_URL}/submit_round3_result`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    });
+    if (!response.ok) {
+        throw await parseErrorResponse(response);
+    }
+    return response.json();
+};
+
+export const aggregateCandidate = async (candidateId) => {
+    const response = await fetch(`${API_URL}/aggregate_final/${encodeURIComponent(candidateId)}`, {
+        method: 'POST'
+    });
+    if (!response.ok) {
+        throw await parseErrorResponse(response);
+    }
+    return response.json();
+};
+

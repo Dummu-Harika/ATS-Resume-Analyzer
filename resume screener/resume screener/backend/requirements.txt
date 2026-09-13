@@ -1,9 +1,0 @@
-fastapi
-uvicorn
-pypdf
-python-multipart
-google-genai
-supabase
-python-dotenv
-certifi
-pdfminer.six

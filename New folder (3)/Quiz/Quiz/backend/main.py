@@ -76,7 +76,13 @@ def get_session_question(session_id: str):
         raise HTTPException(status_code=404, detail='Session not found')
     q = session.generate_next_question()
     if q is None:
-        return { 'next_question': None }
+        report = None
+        try:
+            if session.is_finished:
+                report = manager.gemini_service.sanitize_public_report(session.get_final_report())
+        except Exception:
+            pass
+        return { 'next_question': None, 'report': report }
     # sanitize public version
     public = manager.gemini_service.sanitize_public_question(q) if hasattr(manager, 'gemini_service') and hasattr(manager.gemini_service, 'sanitize_public_question') else q
     public.pop('correctAnswer', None)
